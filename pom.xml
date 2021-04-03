@@ -351,21 +351,42 @@
                     </configuration>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>10</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/${project.artifactId}</contextPath>
-                    </webApp>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
 
+        <profile>
+            <id>jetty</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <webApp>
+                                <contextPath>/${project.artifactId}</contextPath>
+                            </webApp>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.glassfish.web</groupId>
+                    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+                    <version>${jakarta.servlet.jsp.jstl.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>jakarta.json</artifactId>
+                    <version>${jakarta.json.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
         <profile>
             <id>unit-test</id>
             <properties>
