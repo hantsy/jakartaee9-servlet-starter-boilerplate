@@ -12,7 +12,7 @@
         <h:inputText id="name" value="#{hello.name}" />
         <h:message for="name" />
         <br />
-        <h:commandButton value="Say hello" action="#{hello.createMessage}">
+        <h:commandButton value="Say hello" action="#{hello.createMessage()}">
             <f:ajax execute="@form" render="@form" />
         </h:commandButton>
         <br />

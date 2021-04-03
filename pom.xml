@@ -145,16 +145,16 @@
             <version>${jakarta.faces.version}</version>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>jakarta.servlet</groupId>-->
-        <!--            <artifactId>jakarta.servlet-api</artifactId>-->
-        <!--            <scope>provided</scope>-->
-        <!--        </dependency>-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.glassfish.web</groupId>-->
-        <!--            <artifactId>jakarta.servlet.jsp.jstl</artifactId>-->
-        <!--            <version>${jakarta.servlet.jsp.jstl.version}</version>-->
-        <!--        </dependency>-->
+        <!--                <dependency>
+                            <groupId>jakarta.servlet</groupId>
+                            <artifactId>jakarta.servlet-api</artifactId>
+                            <scope>provided</scope>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.glassfish.web</groupId>
+                            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+                            <version>${jakarta.servlet.jsp.jstl.version}</version>
+                        </dependency>-->
 
         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
@@ -200,6 +200,7 @@
             <artifactId>jersey-media-json-binding</artifactId>
         </dependency>
 
+        <!-- Test Deps for JUnit/Arquillian -->
         <dependency>
             <groupId>org.jboss.arquillian.junit5</groupId>
             <artifactId>arquillian-junit5-container</artifactId>
