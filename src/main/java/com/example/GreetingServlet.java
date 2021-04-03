@@ -7,11 +7,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
 @WebServlet(urlPatterns = "/GreetingServlet")
 public class GreetingServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(GreetingServlet.class.getName());
     private static final String PAGE_HEADER = "<html><head><title>Greeting Servlet</title></head><body>";
     private static final String PAGE_FOOTER = "</body></html>";
     
