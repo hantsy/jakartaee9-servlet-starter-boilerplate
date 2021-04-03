@@ -8,6 +8,6 @@ import java.util.Set;
 public class RestActivator extends Application {
     @Override
     public Set<Class<?>> getClasses() {
-        return Set.of(GreetingService.class);
+        return Set.of(GreetingResource.class);
     }
 }

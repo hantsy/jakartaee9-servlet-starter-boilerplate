@@ -162,11 +162,11 @@
             <version>${jakarta.servlet.jsp.jstl.version}</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.el</artifactId>
             <version>${jakarta.el.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency><!-- Optional, only when <f:websocket> is used. -->
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.json</artifactId>
