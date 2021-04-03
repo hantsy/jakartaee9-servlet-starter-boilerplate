@@ -4,6 +4,7 @@
          xmlns="https://jakarta.ee/xml/ns/jakartaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
+    <!--Optional since servlet 3.0-->
     <!--
     <listener>
       <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
@@ -21,22 +22,25 @@
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
 
-<!--    <servlet>
-        <servlet-name>Jersey Web Application</servlet-name>
-        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <init-param>
-            <param-name>jersey.config.server.provider.packages</param-name>
-            <param-value>com.example</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Jersey Web Application</servlet-name>
-        <url-pattern>/api/*</url-pattern>
-    </servlet-mapping>-->
+    <!-- Jersey Servlet config -->
+    <!-- Optional since servlet 3.0 -->
+    <!--<servlet>
+            <servlet-name>Jersey Web Application</servlet-name>
+            <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+            <init-param>
+                <param-name>jersey.config.server.provider.packages</param-name>
+                <param-value>com.example</param-value>
+            </init-param>
+            <load-on-startup>1</load-on-startup>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>Jersey Web Application</servlet-name>
+            <url-pattern>/api/*</url-pattern>
+        </servlet-mapping>-->
 
 
-    <!-- JSF mapping -->
+    <!-- Faces Servlet config -->
+    <!-- Optional since Servlet 3.0 -->
     <!--<servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>

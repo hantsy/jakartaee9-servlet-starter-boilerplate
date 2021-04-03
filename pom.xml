@@ -133,10 +133,10 @@
     </dependencyManagement>
     <dependencies>
 
-        <dependency>
+        <!--<dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- Jakarta Faces -->
         <dependency>
@@ -145,28 +145,36 @@
             <version>${jakarta.faces.version}</version>
         </dependency>
 
-        <!--                <dependency>
-                            <groupId>jakarta.servlet</groupId>
-                            <artifactId>jakarta.servlet-api</artifactId>
-                            <scope>provided</scope>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.glassfish.web</groupId>
-                            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-                            <version>${jakarta.servlet.jsp.jstl.version}</version>
-                        </dependency>-->
-
-        <dependency>
+        <!--
+         <dependency>
+             <groupId>jakarta.servlet</groupId>
+             <artifactId>jakarta.servlet-api</artifactId>
+             <version>5.0.0</version>
+             <scope>provided</scope>
+         </dependency>
+         <dependency>
+             <groupId>jakarta.el</groupId>
+             <artifactId>jakarta.el-api</artifactId>
+             <version>4.0.0</version>
+             <scope>provided</scope>
+         </dependency>
+         <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
             <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
             <version>${jakarta.servlet.jsp.jstl.version}</version>
         </dependency>
+         -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>${jakarta.servlet.jsp.jstl.version}</version>
+        </dependency>
 
-        <!--<dependency>
+        <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.el</artifactId>
             <version>${jakarta.el.version}</version>
-        </dependency>-->
+        </dependency>
         <dependency><!-- Optional, only when <f:websocket> is used. -->
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.json</artifactId>
@@ -182,7 +190,7 @@
         <!-- Weld for CDI support -->
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet-shaded</artifactId>
+            <artifactId>weld-servlet-core</artifactId>
             <version>${weld.version}</version>
         </dependency>
 
@@ -195,6 +203,17 @@
             <groupId>org.glassfish.jersey.inject</groupId>
             <artifactId>jersey-hk2</artifactId>
         </dependency>
+
+        <!-- see: https://github.com/eclipse-ee4j/jersey/blob/3.x/examples/cdi-webapp/pom.xml#L142 -->
+        <dependency>
+            <groupId>org.glassfish.jersey.ext.cdi</groupId>
+            <artifactId>jersey-cdi1x</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.ext.cdi</groupId>
+            <artifactId>jersey-cdi1x-servlet</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
             <artifactId>jersey-media-json-binding</artifactId>
