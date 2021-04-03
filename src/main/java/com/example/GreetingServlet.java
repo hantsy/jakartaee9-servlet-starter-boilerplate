@@ -12,13 +12,12 @@ import java.util.logging.Logger;
 @WebServlet(urlPatterns = "/GreetingServlet")
 public class GreetingServlet extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(GreetingServlet.class.getName());
-    private final static String PAGE_HEADER = "<html><head><title>Greeting Servlet</title></head><body>";
-    private final static String PAGE_FOOTER = "</body></html>";
+    private static final String PAGE_HEADER = "<html><head><title>Greeting Servlet</title></head><body>";
+    private static final String PAGE_FOOTER = "</body></html>";
     
     @Inject
-    GreetingService greetingService;
+    private GreetingService greetingService;
     
-    @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         var name = req.getParameter("name");
         resp.setContentType("text/html");
