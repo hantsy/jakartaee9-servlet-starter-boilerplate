@@ -1,6 +1,8 @@
 # jakartaee9-servlet-starter-boilerplate(WIP)
 
-This repository is a lightweight varient of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) and allow you run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
+Yeah, this is anoter starter boilerplate project for Jakarta EE developers.
+
+This repository is a lightweight varient of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) which allows you to run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
 
 Currently the following features are added.
 
