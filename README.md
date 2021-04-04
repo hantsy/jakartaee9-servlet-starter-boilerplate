@@ -17,10 +17,16 @@ mvn clean pacakge cargo:run
 ## Resources
 
 * [How to install CDI in Tomcat?](https://balusc.omnifaces.org/2013/10/how-to-install-cdi-in-tomcat.html)
+
 * [Happy Jakarta EE 9 with Jersey 3.0.0](http://blog.supol.cz/?p=235)
+
 * [Apache Tomcat 10 Docs](https://tomcat.apache.org/tomcat-10.0-doc)
+
 * [Weld Reference Documentation#Servlet containers (such as Tomcat or Jetty)](https://docs.jboss.org/weld/reference/latest/en-US/html/environments.html#weld-servlet)
-* [Jersey User Guide](https://eclipse-ee4j.github.io/jersey.github.io/documentation/latest3x/user-guide.html)
+
+* [Eclipse Jetty: Operations Guide](https://www.eclipse.org/jetty/documentation/jetty-11/operations-guide/index.html)
+
+* [Eclipse Jetty: Programming Guide](http://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html)
 
   
 

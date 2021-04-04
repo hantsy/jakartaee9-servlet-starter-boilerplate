@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
-<Configure class="org.eclipse.jetty.webapp.WebAppContext">
-<!--    <Set name="serverClasses">
-        <Array type="java.lang.String">
-            <Item>-org.eclipse.jetty.servlet.ServletContextHandler.Decorator</Item>
-        </Array>
-    </Set>-->
-    <!--<Call name="prependServerClass">
-        <Arg>-org.eclipse.jetty.util.Decorator</Arg>
-    </Call>
-    <Call name="prependServerClass">
-        <Arg>-org.eclipse.jetty.util.DecoratedObjectFactory</Arg>
-    </Call>
-    <Call name="prependServerClass">
-        <Arg>-org.eclipse.jetty.server.handler.ContextHandler</Arg>
-    </Call>
-    <Call name="prependServerClass">
-        <Arg>-org.eclipse.jetty.servlet.ServletContextHandler</Arg>
+<Configure>
+<!--    <Call name="setAttribute">
+        <Arg type="String">org.eclipse.jetty.cdi</Arg>
+        <Arg><Property name="jetty.cdi.mode" default="CdiDecoratingListener"/></Arg>
     </Call>-->
 </Configure>

@@ -71,8 +71,7 @@
         <arquillian-weld-embedded.version>3.0.0.Alpha1</arquillian-weld-embedded.version>
 
         <!-- By default, skip tests -->
-        <skip.unit.tests>true</skip.unit.tests>
-        <skip.integration.tests>true</skip.integration.tests>
+        <skipTests>true</skipTests>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -233,6 +232,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.jboss.shrinkwrap.resolver</groupId>
+            <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -290,7 +294,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
-                    <skipTests>${skip.unit.tests}</skipTests>
+                    <skipTests>${skipTests}</skipTests>
                 </configuration>
                 <executions>
                     <execution>
@@ -312,7 +316,7 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>${maven-failsafe-plugin.version}</version>
                 <configuration>
-                    <skipITs>${skip.integration.tests}</skipITs>
+                    <skipITs>${skipTests}</skipITs>
                 </configuration>
                 <executions>
                     <execution>
@@ -355,47 +359,102 @@
     </build>
 
     <profiles>
-
         <profile>
-            <id>jetty</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                        <configuration>
-                            <scanIntervalSeconds>10</scanIntervalSeconds>
-                            <webApp>
-                                <contextPath>/${project.artifactId}</contextPath>
-                            </webApp>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>arq-tomcat-embedded</id>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
             <dependencies>
                 <dependency>
-                    <groupId>org.glassfish.web</groupId>
-                    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
-                    <version>${jakarta.servlet.jsp.jstl.version}</version>
-                    <scope>provided</scope>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-tomcat-embedded-10</artifactId>
+                    <version>1.2.0.Alpha1</version>
+                    <scope>test</scope>
                 </dependency>
                 <dependency>
-                    <groupId>org.glassfish</groupId>
-                    <artifactId>jakarta.json</artifactId>
-                    <version>${jakarta.json.version}</version>
-                    <scope>provided</scope>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-tomcat-jakarta-deps</artifactId>
+                    <version>1.2.0.Alpha1</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-core</artifactId>
+                    <version>${tomcat.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-jasper</artifactId>
+                    <version>${tomcat.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-websocket</artifactId>
+                    <version>${tomcat.version}</version>
+                    <scope>test</scope>
                 </dependency>
             </dependencies>
         </profile>
         <profile>
-            <id>unit-test</id>
+            <id>arq-weld</id>
             <properties>
-                <skip.unit.tests>false</skip.unit.tests>
-                <skip.integration.tests>true</skip.integration.tests>
+                <skipTests>false</skipTests>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-weld-embedded</artifactId>
+                    <version>${arquillian-weld-embedded.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.weld</groupId>
+                    <artifactId>weld-core-impl</artifactId>
+                    <version>${weld.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>${maven-failsafe-plugin.version}</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <arquillian.launch>arq-weld</arquillian.launch>
+                            </systemPropertyVariables>
+                            <excludes>
+                                <exclude>**/it/GreetingResourceTest*</exclude>
+                                <exclude>**/it/GreetingServletTest*</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>coverage</id>
+            <properties>
+                <jacoco.version>0.8.6</jacoco.version>
+                <arquillian-jacoco.version>1.1.0</arquillian-jacoco.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>org.jacoco.core</artifactId>
+                    <version>${jacoco.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.jboss.arquillian.extension</groupId>
+                    <artifactId>arquillian-jacoco</artifactId>
+                    <version>${arquillian-jacoco.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
@@ -447,53 +506,36 @@
             </build>
         </profile>
         <profile>
-            <id>arq-weld</id>
-            <properties>
-                <skip.unit.tests>true</skip.unit.tests>
-                <skip.integration.tests>false</skip.integration.tests>
-            </properties>
-            <dependencies>
-                <dependency>
-                    <groupId>org.jboss.arquillian.container</groupId>
-                    <artifactId>arquillian-weld-embedded</artifactId>
-                    <version>${arquillian-weld-embedded.version}</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
-                    <groupId>org.jboss.weld</groupId>
-                    <artifactId>weld-core-impl</artifactId>
-                    <version>${weld.version}</version>
-                    <scope>test</scope>
-                </dependency>
-            </dependencies>
+            <id>jetty-external</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>${maven-failsafe-plugin.version}</version>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
                         <configuration>
-                            <systemPropertyVariables>
-                                <arquillian.launch>arq-weld</arquillian.launch>
-                            </systemPropertyVariables>
-                            <excludes>
-                                <exclude>**/it/GreetingResourceTest*</exclude>
-                            </excludes>
+                            <deployMode>EXTERNAL</deployMode>
+                            <scanIntervalSeconds>10</scanIntervalSeconds>
+                            <webApp>
+                                <contextPath>/${project.artifactId}</contextPath>
+                            </webApp>
+                            <jettyHome>${env.JETTY_HOME}</jettyHome>
+                            <modules>jdni,jsp,servlet,glassfish-jstl,websocket-jakarta,cdi-decorate</modules>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <id>arq-tomcat-embedded</id>
-            <properties>
-            </properties>
             <dependencies>
                 <dependency>
-                    <groupId>org.jboss.arquillian.container</groupId>
-                    <artifactId>arquillian-tomcat-embedded-10</artifactId>
-                    <version>1.2.0.Alpha1</version>
-                    <scope>test</scope>
+                    <groupId>org.glassfish.web</groupId>
+                    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+                    <version>${jakarta.servlet.jsp.jstl.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.glassfish</groupId>
+                    <artifactId>jakarta.json</artifactId>
+                    <version>${jakarta.json.version}</version>
+                    <scope>provided</scope>
                 </dependency>
             </dependencies>
         </profile>

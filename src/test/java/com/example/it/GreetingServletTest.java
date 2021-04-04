@@ -1,9 +1,6 @@
 package com.example.it;
 
-import com.example.GreetingMessage;
-import com.example.GreetingResource;
-import com.example.GreetingService;
-import com.example.RestActivator;
+import com.example.*;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.core.MediaType;
@@ -29,17 +26,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @ExtendWith(ArquillianExtension.class)
-public class GreetingResourceTest {
+public class GreetingServletTest {
     
-    private final static Logger LOGGER = Logger.getLogger(GreetingResourceTest.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(GreetingServletTest.class.getName());
     
     @Deployment(testable = false)
     public static WebArchive createDeployment() {
         var war = ShrinkWrap.create(WebArchive.class)
                 .addClass(GreetingMessage.class)
                 .addClass(GreetingService.class)
-                .addClasses(GreetingResource.class)
-                .addClasses(RestActivator.class)
+                .addClasses(GreetingServlet.class)
                 // Enable CDI (Optional since Java EE 7.0)
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
                 .addAsWebInfResource("test-web.xml", "web.xml");
@@ -74,13 +70,13 @@ public class GreetingResourceTest {
     @DisplayName("Given a name:`JakartaEE` should return `Say Hello to JakartaEE`")
     public void should_create_greeting() throws MalformedURLException {
         LOGGER.log(Level.INFO, " client: {0}, baseURL: {1}", new Object[]{client, base});
-        final var greetingTarget = this.client.target(new URL(this.base, "api/greeting/JakartaEE").toExternalForm());
+        final var greetingTarget = this.client.target(new URL(this.base, "GreetingServlet?name=Tomcat").toExternalForm());
         try (final Response greetingGetResponse = greetingTarget.request()
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.TEXT_HTML)
                 .get()) {
             assertThat(greetingGetResponse.getStatus()).isEqualTo(200);
-            assertThat(greetingGetResponse.readEntity(GreetingMessage.class).getMessage())
-                    .startsWith("Say Hello to JakartaEE");
+            assertThat(greetingGetResponse.readEntity(String.class))
+                    .contains("Say Hello to Tomcat");
         }
     }
 }
