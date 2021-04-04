@@ -1,11 +1,20 @@
 # jakartaee9-servlet-starter-boilerplate(WIP)
 
-A Jakarta EE starter project boilerplate is a template project for developers to create Java web applicaitons that can be deployed on a  Servlet 5.0(Jakarta EE 9) compatible container, such as Apache Tomcat, Eclipse Jetty etc.
+This repository is a lightweight varient of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) and allow you run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
 
-Currently Jakarta REST 3.0(Jersey 3.0), CDI 3.0 (Weld 4.0) and Jakarta Faces 3.0(Mojarra 3.0) are included and did an exploring test on Tomcat 10.0.x.
+Currently the following features are added.
 
+* Jakarta REST 3.0(Jersey 3.0)
+* CDI 3.0 (Weld 4.0)
+* Jakarta Faces 3.0(Mojarra 3.0)
+* JSTL 2.0
+* And transive dependencies of above features, incuding Jakarta EL, Jarkarta JsonP, Jakarta JsonB, Jakarta Validation(Hibernate Validator), etc.
+
+The most popular Servlet containers, such as Apache Tomcat, Eclise Jetty, etc have built-in Servlet, JSP, EL, WebSocket supports.
 
 > For full fledged features support, go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
+
+## Apache Tomcat 10
 
 Run the following command to run the application on Tomcat 10.
 
@@ -13,6 +22,23 @@ Run the following command to run the application on Tomcat 10.
 mvn clean pacakge cargo:run
 ```
 
+And run the following to run tests against Tomcat 10 embedded adapter.
+
+```bash 
+mvn clean verify -Parq-tomcat-embedded
+```
+
+There is another `arq-weld`which allow you to run your Arquillian tests on a Weld embedded adapter.
+
+```bash 
+mvn clean verify -Parq-weld
+```
+
+> Note: The `arq-weld` is only used to test CDI components.
+
+## Eclipse Jetty 
+
+Not support now, see issue [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
 
 ## Resources
 
