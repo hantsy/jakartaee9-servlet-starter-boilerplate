@@ -12,7 +12,14 @@ public class Hello {
     private GreetingMessage message;
     
     @Inject
-    GreetingService greetingService;
+    private GreetingService greetingService;
+    
+    public Hello() {
+    }
+    
+    public Hello(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
     
     public void createMessage() {
         message = greetingService.buildGreetingMessage(name);
