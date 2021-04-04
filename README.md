@@ -15,7 +15,7 @@ Currently the following features are added.
 * CDI 3.0 (Weld 4.0)
 * Jakarta Server Faces 3.0(Mojarra 3.0)
 * JSTL 2.0
-* And transive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
+* And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
 The most popular Servlet containers, such as Apache Tomcat, Eclise Jetty, etc have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
 
