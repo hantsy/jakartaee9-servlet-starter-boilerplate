@@ -22,6 +22,7 @@ public class HelloTest {
         
         hello.setName(name);
         hello.createMessage();
+        assertThat(hello.getName()).isEqualTo(name);
         assertThat(hello.getMessage().getMessage()).isEqualTo(result);
         verify(service, times(1)).buildGreetingMessage(anyString());
         verifyNoMoreInteractions(service);
