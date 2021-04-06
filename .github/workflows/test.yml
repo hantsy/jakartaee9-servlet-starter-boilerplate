@@ -46,4 +46,4 @@ jobs:
             -Dsonar.login=$SONAR_TOKEN \
             -Dsonar.organization=hantsy \
             -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
-            -Dsonar.coverage.exclusions=**/dto/*
+            -Dsonar.coverage.exclusions=**/*Activator.*
