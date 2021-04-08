@@ -53,7 +53,7 @@
         <jersey.version>3.0.1</jersey.version>
 
         <!-- Weld for CDI support -->
-        <weld.version>4.0.0.Final</weld.version>
+        <weld.version>4.0.1.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
         <arquillian-bom.version>1.7.0.Alpha9</arquillian-bom.version>
