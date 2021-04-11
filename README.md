@@ -5,7 +5,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hantsy_jakartaee9-servlet-starter-boilerplate&metric=alert_status)](https://sonarcloud.io/dashboard?id=hantsy_jakartaee9-servlet-starter-boilerplate)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hantsy_jakartaee9-servlet-starter-boilerplate&metric=coverage)](https://sonarcloud.io/dashboard?id=hantsy_jakartaee9-servlet-starter-boilerplate)
 
-Yeah, this is anoter starter boilerplate project for Jakarta EE developers.
+Yeah, this is another starter boilerplate project for Jakarta EE (esp. Servlet/Java Web) developers.
 
 This repository is a lightweight varient of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) which allows you to run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
 
@@ -17,7 +17,7 @@ Currently the following features are added.
 * JSTL 2.0
 * And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
-The most popular Servlet containers, such as Apache Tomcat, Eclise Jetty, etc have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
+Most popular Servlet containers, such as Apache Tomcat, Eclise Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
 
 > For full fledged features support, go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
@@ -29,13 +29,21 @@ Run the following command to run the application on Tomcat 10.
 mvn clean pacakge cargo:run
 ```
 
-And run the following to run tests against Tomcat 10 embedded adapter.
+## Eclipse Jetty 
+
+Not support now, see issue [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
+
+## Testing
+
+The testing code is written with JUnit and Arquillian.
+
+Run the following command to execute tests against a Tomcat 10 embedded adapter.
 
 ```bash 
 mvn clean verify -Parq-tomcat-embedded
 ```
 
-There is another `arq-weld`which allow you to run your Arquillian tests on a Weld embedded adapter.
+There is another `arq-weld` Maven profile which allows you to run tests on a Weld embedded adapter.
 
 ```bash 
 mvn clean verify -Parq-weld
@@ -43,22 +51,13 @@ mvn clean verify -Parq-weld
 
 > Note: The `arq-weld` is only used to test CDI components.
 
-## Eclipse Jetty 
-
-Not support now, see issue [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
-
 ## Resources
 
 * [How to install CDI in Tomcat?](https://balusc.omnifaces.org/2013/10/how-to-install-cdi-in-tomcat.html)
-
 * [Happy Jakarta EE 9 with Jersey 3.0.0](http://blog.supol.cz/?p=235)
-
-* [Apache Tomcat 10 Docs](https://tomcat.apache.org/tomcat-10.0-doc)
-
+* [Apache Tomcat 10 Documentation](https://tomcat.apache.org/tomcat-10.0-doc)
 * [Weld Reference Documentation#Servlet containers (such as Tomcat or Jetty)](https://docs.jboss.org/weld/reference/latest/en-US/html/environments.html#weld-servlet)
-
 * [Eclipse Jetty: Operations Guide](https://www.eclipse.org/jetty/documentation/jetty-11/operations-guide/index.html)
-
 * [Eclipse Jetty: Programming Guide](http://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html)
 
   
