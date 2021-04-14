@@ -443,14 +443,8 @@
             </properties>
             <dependencies>
                 <dependency>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>org.jacoco.core</artifactId>
-                    <version>${jacoco.version}</version>
-                    <scope>test</scope>
-                </dependency>
-                <dependency>
                     <groupId>org.jboss.arquillian.extension</groupId>
-                    <artifactId>arquillian-jacoco</artifactId>
+                    <artifactId>arquillian-jacoco-with-asm</artifactId>
                     <version>${arquillian-jacoco.version}</version>
                     <scope>test</scope>
                 </dependency>
