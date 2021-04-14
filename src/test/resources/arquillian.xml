@@ -27,7 +27,11 @@
             <property name="jbossHome">${jbossHome:target/wildfly-18.0.1.Final}</property>
         </configuration>
     </container>-->
-
+    <extension qualifier="jacoco">
+           <property name="includes">com.example.*</property>
+           <property name="excludes"></property>
+           <property name="appendAsmLibrary">true</property>         
+    </extension>
     <container qualifier="arq-weld">
         <configuration>
             <property name="enableConversationScope">true</property>
