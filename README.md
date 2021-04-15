@@ -42,9 +42,9 @@ The new jetty-maven-plugin reorganises the former `run-fork` goal,etc and provid
 
 By default, the mode is `EMBEDDED`, similar to the former simple `jetty:run` goal.
 
-The `FORKED` mode used a forked thread to run the application.
+The `FORKED` mode uses a forked thread to run the application.
 
-The `EXTERNAL` mode used an external jetty distribution to run the application.
+The `EXTERNAL` mode will run run the application on an external jetty distribution.
 
 This application provides a configuration for `EXTERNAL` mode, check the *jetty-external* profile.
 
