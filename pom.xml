@@ -191,6 +191,12 @@
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-core</artifactId>
             <version>${weld.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.el</groupId>
+                    <artifactId>jakarta.el-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- Jersey for Jakarta REST support-->
@@ -529,6 +535,12 @@
                     <groupId>org.glassfish</groupId>
                     <artifactId>jakarta.json</artifactId>
                     <version>${jakarta.json.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+                <dependency>
+                    <groupId>jakarta.el</groupId>
+                    <artifactId>jakarta.el-api</artifactId>
+                    <version>4.0.0</version>
                     <scope>provided</scope>
                 </dependency>
             </dependencies>

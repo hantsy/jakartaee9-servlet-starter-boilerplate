@@ -51,6 +51,31 @@ mvn clean verify -Parq-weld
 
 > Note: The `arq-weld` is only used to test CDI components.
 
+
+## Eclipse Jetty 
+
+The new jetty-maven-plugin reorganises the former `run-fork` goal,etc and provides 3 modes.
+
+* EMBEDDED
+* FORKED
+* EXTERNAL
+
+By default, the mode is `EMBEDDED`, similar to the former simple `jetty:run` goal.
+
+The `FORKED` mode used a forked thread to run the application.
+
+The `EXTERNAL` mode used an external jetty distribution to run the application.
+
+This application provides a configuration for `EXTERNAL` mode, check the *jetty-external* profile.
+
+Download a copy of [Eclipse Jetty 11.0.2](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of jetty.
+```bash
+mvn clean jetty:run -Pjetty-external
+```
+
+> There is an issue when integrating Weld into Jetty 11.0.2, it will be fixed in 11.0.3, see [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
+
+
 ## Resources
 
 * [How to install CDI in Tomcat?](https://balusc.omnifaces.org/2013/10/how-to-install-cdi-in-tomcat.html)
