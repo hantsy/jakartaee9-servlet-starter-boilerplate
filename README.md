@@ -29,27 +29,7 @@ Run the following command to run the application on Tomcat 10.
 mvn clean pacakge cargo:run
 ```
 
-## Eclipse Jetty 
 
-Not support now, see issue [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
-
-## Testing
-
-The testing code is written with JUnit and Arquillian.
-
-Run the following command to execute tests against a Tomcat 10 embedded adapter.
-
-```bash 
-mvn clean verify -Parq-tomcat-embedded
-```
-
-There is another `arq-weld` Maven profile which allows you to run tests on a Weld embedded adapter.
-
-```bash 
-mvn clean verify -Parq-weld
-```
-
-> Note: The `arq-weld` is only used to test CDI components.
 
 
 ## Eclipse Jetty 
@@ -74,6 +54,24 @@ mvn clean jetty:run -Pjetty-external
 ```
 
 > There is an issue when integrating Weld into Jetty 11.0.2, it will be fixed in 11.0.3, see [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
+
+## Testing
+
+The testing code is written with JUnit and Arquillian.
+
+Run the following command to execute tests against a Tomcat 10 embedded adapter.
+
+```bash 
+mvn clean verify -Parq-tomcat-embedded
+```
+
+There is another `arq-weld` Maven profile which allows you to run tests on a Weld embedded adapter.
+
+```bash 
+mvn clean verify -Parq-weld
+```
+
+> Note: The `arq-weld` is only used to test CDI components.
 
 
 ## Resources
