@@ -31,7 +31,7 @@
         <maven-surefire-report-plugin.version>3.0.0-M5</maven-surefire-report-plugin.version>
 
         <!-- Cargo maven plugin -->
-        <cargo-maven3-plugin.version>1.9.3</cargo-maven3-plugin.version>
+        <cargo-maven3-plugin.version>1.9.4</cargo-maven3-plugin.version>
 
         <!-- Eclipse Jetty Maven plugin -->
         <jetty-maven-plugin.version>11.0.2</jetty-maven-plugin.version>
