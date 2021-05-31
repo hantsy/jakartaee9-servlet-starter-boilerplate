@@ -37,7 +37,7 @@
         <jetty-maven-plugin.version>11.0.3</jetty-maven-plugin.version>
 
         <!-- Jakarta EE API -->
-        <jakartaee-api.version>9.0.0</jakartaee-api.version>
+        <jakartaee-api.version>9.1.0</jakartaee-api.version>
 
         <tomcat.version>10.0.6</tomcat.version>
         <jetty.version>11.0.2</jetty.version>
