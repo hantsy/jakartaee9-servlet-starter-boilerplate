@@ -60,7 +60,7 @@
         <junit-jupiter.version>5.7.2</junit-jupiter.version>
 
         <!-- Test Utilities -->
-        <mockito.version>3.11.1</mockito.version>
+        <mockito.version>3.11.2</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
         <assertj.version>3.20.2</assertj.version>
 
