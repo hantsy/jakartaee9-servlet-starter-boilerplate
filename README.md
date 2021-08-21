@@ -17,9 +17,9 @@ Currently the following features are added.
 * JSTL 2.0
 * And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
-Most popular Servlet containers, such as Apache Tomcat, Eclise Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
+Most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
 
-> For full fledged features support, go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
+> For full fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
 ## Apache Tomcat 10
 
@@ -28,9 +28,6 @@ Run the following command to run the application on Tomcat 10.
 ```bash
 mvn clean pacakge cargo:run
 ```
-
-
-
 
 ## Eclipse Jetty 
 
