@@ -14,10 +14,9 @@ Currently the following features are added.
 * Jakarta REST 3.0(Jersey 3.0)
 * CDI 3.0 (Weld 4.0)
 * Jakarta Server Faces 3.0(Mojarra 3.0)
-* JSTL 2.0
 * And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
-Most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, Jakarta EL and Jakarta WebSocket supports.
+Nowdays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL and Jakarta WebSocket supports.
 
 > For full fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
@@ -29,28 +28,29 @@ Run the following command to run the application on Tomcat 10.
 mvn clean pacakge cargo:run
 ```
 
-## Eclipse Jetty 
+## Eclipse Jetty 11
 
-The new jetty-maven-plugin reorganises the former `run-fork` goal,etc and provides 3 modes.
+The new `jetty-maven-plugin` reorganises the former `run-fork` goal and provides 3 modes to run a Jetty server.
 
 * EMBEDDED
 * FORKED
 * EXTERNAL
 
-By default, the mode is `EMBEDDED`, similar to the former simple `jetty:run` goal.
+By default, the mode is `EMBEDDED`, similar to the simplest `jetty:run` goal in the previous version.
 
 The `FORKED` mode uses a forked thread to run the application.
 
-The `EXTERNAL` mode will run run the application on an external jetty distribution.
+The `EXTERNAL` mode will run the application on an external Jetty server.
 
 This application provides a configuration for `EXTERNAL` mode, check the *jetty-external* profile.
 
-Download a copy of [Eclipse Jetty 11.0.2](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of jetty.
+Download a copy of the latest [Eclipse Jetty 11](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of jetty.
+
 ```bash
 mvn clean jetty:run -Pjetty-external
 ```
 
-> There is an issue when integrating Weld into Jetty 11.0.2, it will be fixed in 11.0.3, see [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
+> There is an issue when integrating Weld into Jetty 11.0.2, it was fixed in 11.0.3, see [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
 
 ## Testing
 
