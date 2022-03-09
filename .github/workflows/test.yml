@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Run Unit Test
+      - name: Run Test
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -48,3 +48,7 @@ jobs:
             -Dsonar.organization=hantsy \
             -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
             -Dsonar.coverage.exclusions=**/*Activator.*
+#      - name: Run Integartion Test(tomcat-embbed)
+#        run: mvn clean verify -Parq-tomcat-embedded
+      - name: Run Integartion Test(jetty-embbed)
+        run: mvn clean verify -Parq-jetty-embedded
