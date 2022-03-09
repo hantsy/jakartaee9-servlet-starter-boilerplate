@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns="http://www.w3.org/1999/xhtml"
+          version="2.0">
+    <jsp:directive.page contentType="text/html; charset=UTF-8"
+                        pageEncoding="UTF-8"
+                        session="false"/>
+    <jsp:output omit-xml-declaration="true"/>
+    <!-- make it HTML 5 declaration compatiable -->
+    <![CDATA[<!DOCTYPE html>]]>
+    <html>
+    <head><title>Jakarta Server Pages Sample</title></head>
+    <body>${requestScope.hello.message}</body>
+    </html>
+</jsp:root>
