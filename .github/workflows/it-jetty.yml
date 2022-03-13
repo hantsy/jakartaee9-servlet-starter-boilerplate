@@ -1,4 +1,4 @@
-name: test
+name: it-jetty
 
 on:
   push:
@@ -13,9 +13,8 @@ on:
       - reopened
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -36,15 +35,5 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
-      - name: Run Test
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          mvn clean verify jacoco:report -Parq-tomcat-embedded,coverage \
-            org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=$SONAR_TOKEN \
-            -Dsonar.organization=hantsy \
-            -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
-            -Dsonar.coverage.exclusions=**/*Activator.*
+      - name: Run Integartion Test(jetty-embbed)
+        run: mvn clean verify -Parq-jetty-embedded
