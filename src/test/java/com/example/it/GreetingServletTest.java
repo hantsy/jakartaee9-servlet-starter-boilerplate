@@ -17,6 +17,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -38,7 +39,9 @@ public class GreetingServletTest {
                 .addClasses(GreetingServlet.class)
                 // Enable CDI (Optional since Java EE 7.0)
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-                .addAsWebInfResource("test-web.xml", "web.xml");
+                .addAsWebInfResource("test-web.xml", "web.xml")
+                .addAsWebInfResource(new File("src/main/webapp/WEB-INF/jetty-env.xml"), "jetty-env.xml");
+ 
         
         Deployments.addExtraJars(war);
         

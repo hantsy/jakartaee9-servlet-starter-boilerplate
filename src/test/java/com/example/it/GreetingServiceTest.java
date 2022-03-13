@@ -11,7 +11,7 @@ import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-
+import java.io.File;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,7 +28,9 @@ public class GreetingServiceTest {
         var war = ShrinkWrap.create(WebArchive.class)
                 .addClass(GreetingMessage.class)
                 .addClass(GreetingService.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+                .addAsWebInfResource("test-web.xml", "web.xml")
+                .addAsWebInfResource(new File("src/main/webapp/WEB-INF/jetty-env.xml"), "jetty-env.xml");
         
         Deployments.addExtraJars(war);
         
