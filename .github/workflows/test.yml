@@ -40,3 +40,4 @@ jobs:
             -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
             -Dsonar.coverage.exclusions=**/*Activator.*  \ 
 
+
