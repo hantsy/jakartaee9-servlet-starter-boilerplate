@@ -38,4 +38,14 @@
             <property name="environment">SE</property>
         </configuration>
     </container>
+    <container qualifier="arq-jetty-embedded">
+        <configuration>
+          <property name="bindHttpPort">8080</property>
+          <!-- <property name="realmProperties">src/test/resources/jetty-realm.properties</property>
+          <property name="mimeTypes">
+            js application/js
+            txt text/plain
+          </property> -->
+        </configuration>
+      </container>
 </arquillian>
