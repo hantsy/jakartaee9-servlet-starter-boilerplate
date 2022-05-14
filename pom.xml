@@ -39,7 +39,7 @@
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
         <tomcat.version>10.0.20</tomcat.version>
-        <jetty.version>11.0.8</jetty.version>
+        <jetty.version>11.0.9</jetty.version>
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
         <jakarta.faces.version>3.0.2</jakarta.faces.version><!-- Glassfish Mojarra -->
@@ -172,11 +172,12 @@
             <artifactId>jakarta.el</artifactId>
             <version>${jakarta.el.version}</version>
         </dependency>
-        <dependency><!-- Optional, only when <f:websocket> is used. -->
+        <!-- Optional, only when <f:websocket> is used. -->
+        <!-- dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.json</artifactId>
             <version>${jakarta.json.version}</version>
-        </dependency>
+        </dependency -->
 
         <dependency><!-- Optional, only when <f:validateBean> or <f:validateWholeBean> is used. -->
             <groupId>org.hibernate.validator</groupId>
@@ -406,47 +407,71 @@
             <properties>
                 <skipTests>false</skipTests>
             </properties>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-bom</artifactId>
+                        <version>${jetty.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-jetty-embedded-11</artifactId>
-                    <version>1.0.0.CR4</version>
+                    <version>1.0.0.Final-SNAPSHOT</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-annotations</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-plus</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-deploy</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-servlet</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-webapp</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-cdi</artifactId>
+                    <scope>test</scope>
+                    <!-- to remove when 11.0.10 released -->
+                    <!-- see https://github.com/eclipse/jetty.project/pull/7991 -->
                     <version>${jetty.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.websocket</groupId>
+                    <artifactId>websocket-jakarta-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>apache-jsp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                    <version>1.7.36</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
