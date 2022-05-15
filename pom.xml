@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -44,7 +42,7 @@
 
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
-        <jakarta.faces.version>3.0.2</jakarta.faces.version><!-- Glassfish Mojarra -->
+        <jakarta.faces.version>3.0.2</jakarta.faces.version> <!-- Glassfish Mojarra -->
         <jakarta.servlet.jsp.jstl.version>2.0.0</jakarta.servlet.jsp.jstl.version>
         <jakarta.json.version>2.0.1</jakarta.json.version>
         <hibernate-validator.version>7.0.4.Final</hibernate-validator.version>
@@ -181,7 +179,8 @@
             <version>${jakarta.json.version}</version>
         </dependency -->
 
-        <dependency><!-- Optional, only when <f:validateBean> or <f:validateWholeBean> is used. -->
+        <dependency>
+            <!-- Optional, only when <f:validateBean> or <f:validateWholeBean> is used. -->
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
@@ -287,7 +286,7 @@
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>3.7.0.1746</version>
-                  </plugin>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
@@ -429,7 +428,7 @@
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-jetty-embedded-11</artifactId>
-                    <version>1.0.0.Final-SNAPSHOT</version>
+                    <version>1.0.0.CR4</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -480,6 +479,11 @@
                     <artifactId>slf4j-simple</artifactId>
                     <version>1.7.36</version>
                     <scope>test</scope>
+                </dependency>
+                <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
+                <dependency>
+                    <groupId>org.jboss.arquillian.testenricher</groupId>
+                    <artifactId>arquillian-testenricher-resource-jakarta</artifactId>
                 </dependency>
             </dependencies>
         </profile>
