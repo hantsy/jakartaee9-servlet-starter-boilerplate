@@ -30,7 +30,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   
         run: |
-           mvn -B -q clean verify jacoco:report sonar:sonar -Parq-tomcat-embedded,coverage \
+           mvn -B -q clean verify jacoco:report  -Parq-tomcat-embedded,coverage \
+            sonar:sonar \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN  \
             -Dsonar.organization=hantsy \
