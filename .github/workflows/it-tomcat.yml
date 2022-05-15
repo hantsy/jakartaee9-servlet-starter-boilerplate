@@ -37,6 +37,8 @@ jobs:
             -Dsonar.organization=hantsy \
             -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
             -Dsonar.coverage.exclusions=**/*Activator.*  \ 
-            -Dsonar.java.source=11 
+            -Dsonar.java.source=11
+            
+
 
 
