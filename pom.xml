@@ -283,7 +283,7 @@
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.7.0.1746</version>
+                    <version>3.9.1.2184</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -481,7 +481,7 @@
                 <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
                 <dependency>
                     <groupId>org.jboss.arquillian.testenricher</groupId>
-                    <artifactId>arquillian-testenricher-resource-jakarta</artifactId>
+                    <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
                 </dependency>
             </dependencies>
         </profile>

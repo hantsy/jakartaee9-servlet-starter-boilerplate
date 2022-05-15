@@ -26,7 +26,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven   
-        run: mvn -B clean verify jacoco:report -Parq-tomcat-embedded,coverage
+        run: mvn -B -q clean verify jacoco:report -Parq-tomcat-embedded,coverage
 
       - name: SonarCloud Scan
         env:
@@ -39,5 +39,6 @@ jobs:
             -Dsonar.organization=hantsy \
             -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
             -Dsonar.coverage.exclusions=**/*Activator.*  \ 
+            -Dsonar.java.source=11 \
 
 
