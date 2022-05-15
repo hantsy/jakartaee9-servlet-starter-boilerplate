@@ -7,18 +7,18 @@
 
 Yeah, this is another starter boilerplate project for Jakarta EE (esp. Servlet/Java Web) developers.
 
-This repository is a lightweight varient of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) which allows you to run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
+This repository is a lightweight variant of the original [Jakarta EE 9 starter boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) which allows you to run applications on a Servlet 5.0 compatible container, such as Apache Tomcat, Eclipse Jetty, JBoss Undertow.
 
-Currently the following features are added.
+Currently, the following features are added.
 
 * Jakarta REST 3.0(Jersey 3.0)
 * CDI 3.0 (Weld 4.0)
 * Jakarta Server Faces 3.0(Mojarra 3.0)
 * And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
-Nowdays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL and Jakarta WebSocket supports.
+Nowadays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL and Jakarta WebSocket supports.
 
-> For full fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
+> For full-fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
 ## Apache Tomcat 10
 
@@ -30,21 +30,21 @@ mvn clean pacakge cargo:run
 
 ## Eclipse Jetty 11
 
-The new `jetty-maven-plugin` reorganises the former `run-fork` goal and provides 3 modes to run a Jetty server.
+The new `jetty-maven-plugin` reorganizes the former `run-fork` goal and provides 3 modes to run a Jetty server.
 
 * EMBEDDED
 * FORKED
 * EXTERNAL
 
-By default, the mode is `EMBEDDED`, similar to the simplest `jetty:run` goal in the previous version.
+The default mode is `EMBEDDED` similar to the simplest `jetty:run` goal in the previous version.
 
 The `FORKED` mode uses a forked thread to run the application.
 
-The `EXTERNAL` mode will run the application on an external Jetty server.
+The `EXTERNAL` mode runs the application on an external Jetty server.
 
-This application provides a configuration for `EXTERNAL` mode, check the *jetty-external* profile.
+This sample project provides a configuration for `EXTERNAL` mode. Check the *jetty-external* Maven profile.
 
-Download a copy of the latest [Eclipse Jetty 11](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of jetty.
+Download a copy of the latest [Eclipse Jetty 11](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of the Jetty distribution.
 
 ```bash
 mvn clean jetty:run -Pjetty-external
@@ -54,15 +54,20 @@ mvn clean jetty:run -Pjetty-external
 
 ## Testing
 
-The testing code is written with JUnit and Arquillian.
+The testing codes write with JUnit and Arquillian.
 
-Run the following command to execute tests against a Tomcat 10 embedded adapter.
+Run the following command to execute tests against a Tomcat 10 Embedded adapter.
 
 ```bash 
 mvn clean verify -Parq-tomcat-embedded
 ```
+Alternatively, run the following command to execute tests against a Jetty 11 Embedded adapter.
 
-There is another `arq-weld` Maven profile which allows you to run tests on a Weld embedded adapter.
+```bash 
+mvn clean verify -Parq-jetty-embedded
+```
+
+There is another `arq-weld` Maven profile with which you can run tests on a Weld embedded adapter.
 
 ```bash 
 mvn clean verify -Parq-weld

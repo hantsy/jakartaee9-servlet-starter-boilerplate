@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -39,10 +37,10 @@
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
         <tomcat.version>10.0.20</tomcat.version>
-        <jetty.version>11.0.8</jetty.version>
+        <jetty.version>11.0.9</jetty.version>
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
-        <jakarta.faces.version>3.0.2</jakarta.faces.version><!-- Glassfish Mojarra -->
+        <jakarta.faces.version>3.0.2</jakarta.faces.version> <!-- Glassfish Mojarra -->
         <jakarta.servlet.jsp.jstl.version>2.0.0</jakarta.servlet.jsp.jstl.version>
         <jakarta.json.version>2.0.1</jakarta.json.version>
         <hibernate-validator.version>7.0.4.Final</hibernate-validator.version>
@@ -172,13 +170,15 @@
             <artifactId>jakarta.el</artifactId>
             <version>${jakarta.el.version}</version>
         </dependency>
-        <dependency><!-- Optional, only when <f:websocket> is used. -->
+        <!-- Optional, only when <f:websocket> is used. -->
+        <!-- dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>jakarta.json</artifactId>
             <version>${jakarta.json.version}</version>
-        </dependency>
+        </dependency -->
 
-        <dependency><!-- Optional, only when <f:validateBean> or <f:validateWholeBean> is used. -->
+        <dependency>
+            <!-- Optional, only when <f:validateBean> or <f:validateWholeBean> is used. -->
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
@@ -279,6 +279,11 @@
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
                     <version>${jetty-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.9.1.2184</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -406,6 +411,17 @@
             <properties>
                 <skipTests>false</skipTests>
             </properties>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-bom</artifactId>
+                        <version>${jetty.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
@@ -416,38 +432,56 @@
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-annotations</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-plus</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-deploy</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-servlet</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-webapp</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-cdi</artifactId>
-                    <version>${jetty.version}</version>
                     <scope>test</scope>
+                    <!-- to remove when 11.0.10 released -->
+                    <!-- see https://github.com/eclipse/jetty.project/pull/7991 -->
+                    <version>${jetty.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.websocket</groupId>
+                    <artifactId>websocket-jakarta-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>apache-jsp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                    <version>1.7.36</version>
+                    <scope>test</scope>
+                </dependency>
+                <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
+                <dependency>
+                    <groupId>org.jboss.arquillian.testenricher</groupId>
+                    <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
                 </dependency>
             </dependencies>
         </profile>
