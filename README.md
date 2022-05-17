@@ -1,8 +1,8 @@
 # jakartaee9-servlet-starter-boilerplate(WIP)
 
 ![Compile and build](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/workflows/Build/badge.svg)
-![it-tomcat](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/actions/workflows/it-tomcat.yml/badge.svg)
-![it-jetty](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/actions/workflows/it-jetty.yml/badge.svg)
+![it-tomcat](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/workflows/it-tomcat/badge.svg)
+![it-jetty](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/workflows/it-jetty/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=hantsy_jakartaee9-servlet-starter-boilerplate&metric=alert_status)](https://sonarcloud.io/dashboard?id=hantsy_jakartaee9-servlet-starter-boilerplate)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hantsy_jakartaee9-servlet-starter-boilerplate&metric=coverage)](https://sonarcloud.io/dashboard?id=hantsy_jakartaee9-servlet-starter-boilerplate)
 
