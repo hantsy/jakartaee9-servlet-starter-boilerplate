@@ -426,7 +426,7 @@
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-jetty-embedded-11</artifactId>
-                    <version>1.0.0.CR4</version>
+                    <version>1.0.0.Final</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
