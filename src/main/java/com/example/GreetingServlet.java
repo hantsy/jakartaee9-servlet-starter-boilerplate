@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/GreetingServlet")
 public class GreetingServlet extends HttpServlet {
-    private static final String PAGE_HEADER = "<html><head><title>Greeting Servlet</title></head><body>";
+    private static final String PAGE_HEADER = "<html><head><title>Jakarta Servlet Example</title></head><body>";
     private static final String PAGE_FOOTER = "</body></html>";
     
     @Inject
@@ -23,6 +23,7 @@ public class GreetingServlet extends HttpServlet {
         writer.println(PAGE_HEADER);
         
         // write message to http response
+        writer.println("<h1> Hello Servlet </h1>");
         writer.println("<p>" + greetingService.buildGreetingMessage(name) + "</p>");
         
         writer.println(PAGE_FOOTER);

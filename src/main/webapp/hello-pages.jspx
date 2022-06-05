@@ -9,7 +9,10 @@
     <!-- make it HTML 5 declaration compatiable -->
     <![CDATA[<!DOCTYPE html>]]>
     <html>
-    <head><title>Jakarta Server Pages Sample</title></head>
-    <body>${requestScope.hello.message}</body>
+    <head><title>Jakarta Server Pages Example</title></head>
+    <body>
+        <h1>Hello Pages</h1>
+        <p>${requestScope.hello.message}</p>
+    </body>
     </html>
 </jsp:root>
