@@ -1,8 +1,8 @@
 # Building a Jakarta EE 9 Web application with Servlet Containers
 
-In Jakarta EE world, a lot of Java developers have built Java Web applications, instead of using a full-fledged Application Servers, such as Payara, WildFly and WebLogic as production environments, they preferred to deploy into and run on a light-weight Servlet container, such as Apache Tomcat, Eclipse Jetty.
+In Jakarta EE world, a lot of Java developers have built Java Web applications, but instead of using a full-fledged Application Servers, such as Payara, WildFly and WebLogic as production environments, they preferred to deploy into and run on a light-weight Servlet container, such as Apache Tomcat, Eclipse Jetty.
 
-In the past years I have prepared [jakartaee8-starter-boilerplate](https://github.com/hantsy/jakartaee8-starter-boilerplate) and  [jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) to help develpers to start a new Jakarta EE project and deployed into the popular application servers. 
+In the past years I have prepared [jakartaee8-starter-boilerplate](https://github.com/hantsy/jakartaee8-starter-boilerplate) and  [jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate) to help develpers to start a new Jakarta EE project and deploy into the popular application servers. 
 The newly created [jakartaee9-servlet-starter-boilerplate](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) project provides a template to create Jakarta EE web applications and deploy to the popular Servlet containers, esp. Apache Tomcat 10.x and Eclipse Jetty 11.x. In this project, I have integrated the following popular Jakarta EE compoenents.
 
   * CDI 3.0 (Weld 4.0)
@@ -12,15 +12,26 @@ The newly created [jakartaee9-servlet-starter-boilerplate](https://github.com/ha
 
 Nowadays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL and Jakarta WebSocket supports.
 
+## Prerequisites 
+
+Make sure you have installed the following softwares.
+
+* JDK 11 or 17
+* Apache Maven 3.8
+* Apache Tomcat 10.x and Eclipse Jetty 11.x
+* Intellij IDEA Communnity Edition or VSCode + Java Pack
+
 Let's explore the integrated features in the [jakartaee9-servlet-starter-boilerplate](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) repository.
 
 ## Configuration
 
-Clone the source codes of [jakartaee9-servlet-starter-boilerplate](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) repository to follow these steps, or create a new Maven webapp through [Maven Webapp Archetype](https://maven.apache.org/archetypes/maven-archetype-webapp/).
+To prepare a project used in the next stpes, clone the source codes of [jakartaee9-servlet-starter-boilerplate](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) repository or create a new Maven webapp through [Maven Webapp Archetype](https://maven.apache.org/archetypes/maven-archetype-webapp/). 
 
 ### Jakarta Servlet 5.0
 
-Apache Tomcat and Eclipse Jetty has built-in Jakarta Servlet, Jakarta Pages, Jakarta WebSocket implementation in the distribution bundle. But in the development stage, you could use these APIs in your project codes. 
+Apache Tomcat and Eclipse Jetty has built-in Jakarta Servlet, Jakarta Pages, Jakarta WebSocket implementation in the distribution bundle. 
+
+But in the development stage, you could use these APIs in your project codes. 
 
 Delcare `jakarta.jakartaee-bom` in the the `dependencyManagement` section.
 
@@ -229,7 +240,7 @@ Add the following dependencies.
 </dependency>
 ```
 
-In the Jersey 3.0, it is still dependent on HK2 which a small IOC container, and `jersey-media-json-binding` provides JSON searialzation and desearialization through Jakarta JSON binding. 
+Jersey 3.0 is still dependent on HK2 which a small IOC container, and `jersey-media-json-binding` provides JSON searialzation and desearialization through Jakarta JSON binding. 
 
 The Jersey support will be initialized when the Servlet container is starting up.
 
@@ -583,7 +594,7 @@ The `FORKED` mode uses a forked thread to run the application.
 
 The `EXTERNAL` mode runs the application on an external standalone Jetty server.
 
-#### Using `EMBED` Mode
+#### Deploying to an Embedded Jetty Server
 
 Configure jetty maven plugin and use EMBED mode.
 
