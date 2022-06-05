@@ -1,4 +1,4 @@
-# jakartaee9-servlet-starter-boilerplate(WIP)
+# jakartaee9-servlet-starter-boilerplate
 
 ![Compile and build](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/workflows/Build/badge.svg)
 ![it-tomcat](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/workflows/it-tomcat/badge.svg)
