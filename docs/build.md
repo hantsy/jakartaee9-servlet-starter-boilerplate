@@ -671,15 +671,16 @@ Configure jetty maven plugin and use EMBED mode.
 </profile>
 ```
 
-There is `useProvidedScope` option, when it is true, it will use *provided* scoped dependencies in container classpath to run the application. 
+There is `useProvidedScope` option, when it is true, it will add Maven *provided* scoped dependencies to the container classpath and run the application. 
 
-> Here, if I disable it, it will cause failure to run the application.
+> If I disable it in this project, it will fail to run this application.
 
 Run the following command to deploy the application into an embedded Jetty.
 
 ```bash 
 mvn clean jetty:run -Pjetty-embed
 ```
+You will see a lot of warning of duplicated classes, due to some duplicated artifacts in the containter classpath.
 
 #### Deploying to an External Jetty Server
 
