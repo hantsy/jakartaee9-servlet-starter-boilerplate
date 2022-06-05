@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "https://www.eclipse.org/jetty/configure_10_0.dtd">
-<Configure>
-<!--    <Call name="setAttribute">
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+    <!--<Call name="setAttribute">
         <Arg type="String">org.eclipse.jetty.cdi</Arg>
         <Arg><Property name="jetty.cdi.mode" default="CdiDecoratingListener"/></Arg>
     </Call>-->
