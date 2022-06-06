@@ -43,7 +43,7 @@ Delcare `jakarta.jakartaee-bom` in the the `dependencyManagement` section.
     <version>9.1.0</version>
     <type>pom</type>
 </dependency>
-```            
+```
 And add the following dependencies in the project `dependencies` section.
 
 ```xml
@@ -513,7 +513,7 @@ public class GreetingResource {
 }
 ```
 
-## Run the application
+## Deploy and Run the application
 
 To deploy an application to the production environment, firstly we can package the built files into a `war` archive, and put it into a deployable folder under the servlet container. Then start up the servlet container, the war file will be detected and deployed into the servlet container.
 
@@ -671,9 +671,9 @@ Configure jetty maven plugin and use EMBED mode.
 </profile>
 ```
 
-There is `useProvidedScope` option, when it is true, it will add Maven *provided* scoped dependencies to the container classpath and run the application. 
+There is `useProvidedScope` option. When it is true, it will add Maven *provided* scoped dependencies to the container classpath and run the application, else it will use a isolated application classpath to run the application.
 
-> If I disable it in this project, it will fail to run this application.
+> Here we have to set it to true, if it is false, it will fail to run our application.  
 
 Run the following command to deploy the application into an embedded Jetty.
 
@@ -727,9 +727,9 @@ Create a new Maven profile for this purpose.
     </dependencies>
 </profile>
 ```
-Make sure you have downloaded a copy of Eclipse Jetty, and create an system environment variable `JETTY_HOME`  and set it to the location of Eclipse Jetty folder.
+Make sure you have downloaded a copy of Eclipse Jetty, and create an system environment variable `JETTY_HOME`  and set it to the location of Eclipse Jetty root folder.
 
-Run the following command to deploy the application into an embedded Jetty.
+Run the following command to deploy the application into the standalone Jetty server.
 
 ```bash 
 mvn clean jetty:run -Pjetty-external
