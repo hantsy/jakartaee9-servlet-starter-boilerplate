@@ -1,4 +1,4 @@
-# Building a Jakarta EE 9 Web application with Servlet Containers
+# Building Jakarta EE 9 Web application with Servlet Container
 
 In Jakarta EE world, a lot of Java developers have built Java Web applications, but instead of using a full-fledged Application Servers, such as Payara, WildFly and WebLogic as production environments, they preferred to deploy into and run on a light-weight Servlet container, such as Apache Tomcat, Eclipse Jetty.
 
@@ -8,7 +8,7 @@ The newly created [jakartaee9-servlet-starter-boilerplate](https://github.com/ha
   * CDI 3.0 (Weld 4.0)
   * Jakarta REST 3.0(Jersey 3.0)
   * Jakarta Server Faces 3.0(Mojarra 3.0)
-  * And transitive dependencies of above features, incuding Jakarta EL, Jarkarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
+  * And transitive dependencies of above features, including Jakarta EL, Jakarta Json Processing, Jakarta Json Binding, Jakarta Validation(Hibernate Validator), etc.
 
 Nowadays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jetty, etc. have built-in Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL and Jakarta WebSocket supports.
 
@@ -19,7 +19,7 @@ Make sure you have installed the following softwares.
 * JDK 11 or 17
 * Apache Maven 3.8
 * Apache Tomcat 10.x and Eclipse Jetty 11.x
-* Intellij IDEA Communnity Edition or VSCode + Java Pack
+* Intellij IDEA Community Edition or VSCode + Java Pack
 
 Let's explore the integrated features in the [jakartaee9-servlet-starter-boilerplate](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) repository.
 
@@ -33,7 +33,7 @@ Apache Tomcat and Eclipse Jetty has built-in Jakarta Servlet, Jakarta Pages, Jak
 
 But in the development stage, you could use these APIs in your project codes. 
 
-Delcare `jakarta.jakartaee-bom` in the the `dependencyManagement` section.
+Declare `jakarta.jakartaee-bom` in the the `dependencyManagement` section.
 
 ```xml
 <!-- https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-bom -->
