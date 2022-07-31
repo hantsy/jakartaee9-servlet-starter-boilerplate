@@ -43,15 +43,25 @@ The `FORKED` mode uses a forked thread to run the application.
 
 The `EXTERNAL` mode runs the application on an external Jetty server.
 
-This sample project provides a configuration for `EXTERNAL` mode. Check the *jetty-external* Maven profile.
 
-Download a copy of the latest [Eclipse Jetty 11](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of the Jetty distribution.
+This sample project provides configurations for `EMBEDED`  and `EXTERNAL` mode. 
+
+There is a `jetty-embed` profile for `EMBEDED` mode and a `jetty-external` profile for `EXTERNAL` mode.
+
+To run the application on `EMBEDED` mode, run the following command.
+
+```bash
+mvn clean jetty:run -Pjetty-embed
+```
+
+To run the application on `EXTERNAL` mode,  firstly download a copy of the latest [Eclipse Jetty 11](https://www.eclipse.org/jetty) and set an environment variable `JETTY_HOME` to the location of the Jetty distribution.
+    
+Then run the following command.
 
 ```bash
 mvn clean jetty:run -Pjetty-external
 ```
 
-> There is an issue when integrating Weld into Jetty 11.0.2, it was fixed in 11.0.3, see [hantsy/jakartaee9-servlet-starter-boilerplate#1](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/issues/1).
 
 ## Testing
 
