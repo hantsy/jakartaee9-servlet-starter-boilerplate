@@ -2,13 +2,13 @@
 
 In the last post [Building JakartaEE 9 Web Applicaiton with Servlet Container](./build.md), we have described how to start a Jakarta EE 9 web application with the core Jakarta EE components, including CDI, Jakarta Faces, Jakarta Servlet, Jakarta Pages, Jakarta REST etc. In this post will use Arquillian to test these components with a Servlet Container.
 
-The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, more information please check [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently both projects provide an *embeded* container adapter, no managed and remote adapters available.
+The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, more information please go to [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently both projects provide an *embeded* container adapter for the latest Apache Tomcat 10 and Eclipse Jetty 11, but there is no managed and remote adapters available.
 
 If you are new to Arquillian testing framework, please read the official [Getting Started Guides](https://arquillian.org/guides/) or explore my previous Arqillian articles of [testing Jakarta EE 8 applicaitons](https://hantsy.github.io/jakartaee8-starter-boilerplate/) and [Jakarta EE 9 applications](https://hantsy.github.io/jakartaee9-starter-boilerplate/).
 
 ## Configuring Arquillian
 
-Firstly declares Arquillian Core and Junit *BOM* in the project *pom.xml* file.
+Firstly add Arquillian Core and JUnit *BOM* to the *dependencyManagement* section of the project *pom.xml* file.
 
 ```xml
 <dependencyManagement>
@@ -32,7 +32,7 @@ Firstly declares Arquillian Core and Junit *BOM* in the project *pom.xml* file.
 </dependencyManagement>
 ```
 
-Add the following dependencies in the project dependencies.
+Add the following dependencies in the project *dependencies* section.
 
 ```xml
 <dependencies>
@@ -54,7 +54,7 @@ Add the following dependencies in the project dependencies.
     </dependency>
 </dependencies>
 ```      
-You can also add the following test utility libs to improve your testing codes.
+You can also add the following testing utility libs to improve your testing codes.
 
 ```xml
 <dependencies>
@@ -82,11 +82,11 @@ You can also add the following test utility libs to improve your testing codes.
 </dependencies>    
 ```
 
-Firstly we will configure Arquillian Tomcat Embedded Adapter to run the testing codes agaisnt an embedded Tomcat Servlet Container. 
+Next we will configure Arquillian Tomcat Embedded Adapter to run the testing codes agaisnt an embedded Apache Tomcat container. 
 
-## Adding Arquillian Tomcat Embedded Adapter Configuration
+## Configuring Arquillian Tomcat Embedded Adapter
 
-Create a new Maven profile to centralize all configuration of Arquillian tomcat embeded adapter.
+Create a new Maven profile to centralize all configurations of the Arquillian tomcat embeded adapter.
 
 ```xml
 <profile>
@@ -122,7 +122,7 @@ Create a new Maven profile to centralize all configuration of Arquillian tomcat 
     </dependencies>
 </profile>
 ```
-Now we can write some testing codes and run on Tomcat container.
+Now we will write some testing codes.
 
 ## Testing Jakarta Components
 
@@ -139,7 +139,7 @@ public class GreetingMessageTest {
 }
 ```
 
-The `GreetingService` bean itself is implements a simple funcationality that is used to build a greeting message using the `buildGreetingMessage` method that accepts an argument to setup the target of greeting. Just like previous testing work, create a simple JUnit test to verify the functionality.
+The `GreetingService` bean itself is just implementing a simple funcationality that is used to build a greeting message using the `buildGreetingMessage` method that accepts an argument to setup the target of greeting. Just like previous testing example, create a simple JUnit test to verify if it is functional as expected.
 
 ```java
 public class GreetingServiceUnitTest {
@@ -159,7 +159,7 @@ public class GreetingServiceUnitTest {
 }
 ```
 
-The `Hello` bean dependes on `GreetingService` bean. To test the functionality of `Hello` in a Unit Test, we can use Mockito to isolate the dependency `GreetingService`. In the following `HelloTest`, we created a mocked object of `GreetingService` in the tests. 
+The `Hello` bean dependes on `GreetingService` bean. To test the functionality of `Hello` in a Unit Test, we can use Mockito to isolate the dependency - `GreetingService`. In the following `HelloTest`, we created a mocked object of `GreetingService` in the tests. 
 
 ```java
 public class HelloTest {
@@ -189,9 +189,9 @@ public class HelloTest {
 }
 ```
 
-We have tested the simple POJOs in simple unit tests, for other Jakarta EE components, such as Servlet, Jakarta Pages, etc, we have to verify the functionality in Servlet container, we will write Arquillian based integation tests for this scenario.
+We have tested the simple POJOs in unit tests, for other Jakarta EE components, such as Servlet, Jakarta Pages, etc, we have to verify the functionality in a Servlet container, we will write integation tests using Arquillian for this scenario.
 
-To split the running of unit tests and integration tests, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in `integration-test` phase. 
+To run unit tests and integration tests in different phase, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in `integration-test` phase. 
 
 ```xml
 <plugins>
