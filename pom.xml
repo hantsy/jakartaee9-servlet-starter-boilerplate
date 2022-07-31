@@ -53,8 +53,8 @@
         <weld.version>4.0.3.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
-        <arquillian-bom.version>1.7.0.Alpha10</arquillian-bom.version>
-        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+        <arquillian-bom.version>1.7.0.Alpha11</arquillian-bom.version>
+        <junit-jupiter.version>5.9.0</junit-jupiter.version>
 
         <!-- Test Utilities -->
         <mockito.version>4.6.1</mockito.version>
