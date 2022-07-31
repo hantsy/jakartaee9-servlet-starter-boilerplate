@@ -281,7 +281,11 @@ public class GreetingServiceTest {
 }
 ```
 
-As you see, an Arquillian based test is annotated with `@ExtendWith(ArquillianExtension.class)`, it is a standard JUnit 5 extension. In every arquillian test, you have to create a minimal deployment archive via a static `@Deployment` annotated method. In the `@Deployment` method, you can prepare the resource that will be packaged and deployed to the target runtime before running test cases. In the test class, you can inject available beans, for example, we inject `GreetingService` here,  then in the test method, use `GreetingService` bean to verify the functionality.
+As you see, an Arquillian integration test is annotated with `@ExtendWith(ArquillianExtension.class)`, which is a standard JUnit 5 extension. 
+
+In an Arquillian test, you have to create a minimal deployment archive via a static `@Deployment` annotated method. In the `@Deployment` method, you can prepare the resource that will be packaged and deployed to the target runtime before running test cases. 
+
+In the test class, you can inject available beans like a CDI bean, for example, we inject `GreetingService` here, then in the test method, use `GreetingService` bean to verify the functionality.
 
 Open your terminal, execute the following command to run `GreetingServiceTest`.
 
@@ -289,7 +293,7 @@ Open your terminal, execute the following command to run `GreetingServiceTest`.
 mvn clean verify -Parq-tomcat-embeded -Dit.test=GreetingServiceTest
 ```
 
-When running the test, it will package the configured resource into an archive, and deploy to the container, then run the test in the container, the local JUnit report will gather the running result through Arquillian proxy in the server side. 
+When running Arquillian test, it will package the deployment resources into a deployable archive, and deploy it to the target container, then run the test in the container, the JUnit client agent will gather the running result through a proxy that interacts with tests in the container. 
 
 Let's move to test `GreetingResource`. 
 
@@ -326,7 +330,6 @@ public class GreetingResourceTest {
     public void setup() {
         LOGGER.info("call BeforeEach");
         this.client = ClientBuilder.newClient();
-        //removed the Jackson json provider registry, due to OpenLiberty 21.0.0.1 switched to use Resteasy.
     }
     
     @AfterEach
@@ -353,7 +356,13 @@ public class GreetingResourceTest {
 }
 ```
 
-Different from the `GreetingServiceTest`, to test the funtionality of `GreetingResource`, we use Jakarta REST Client API to verify the API in the client view. Adding a `testable=false` in the `@Deployment` annotation means all tests will be run in the client JVM. Alternatively, you can also add a single `@RunAsClient` on the test method to run it locally. The `@ArquillianResource` will bind the base URL of the deployed archive in the container. 
+Unlike `GreetingServiceTest`, to test the funtionality of `GreetingResource`, we use Jakarta REST Client API to interact with the HTTP APIs in a client view. 
+
+Adding a `testable=false` attribute in the `@Deployment` annotation means all tests will be run in the client mode.
+
+Alternatively, you can also add a single `@RunAsClient` on the test method to run it locally. 
+
+The `@ArquillianResource` will inject the base URL of the deployment archive in the container after it is deployed. 
 
 Execute the following command to run `GreetingServiceTest`.
 
@@ -361,15 +370,15 @@ Execute the following command to run `GreetingServiceTest`.
 mvn clean verify -Parq-tomcat-embeded -Dit.test=GreetingResourceTest
 ```
 
-> If `@Deployment(testable=true)` is applied on the deployment method, thus all tests run as client mode, we can NOT inject the beans in the test class as previous example.
+> If a `@Deployment(testable=true)` is applied on the deployment method, thus all tests run as client mode, we can NOT inject beans in the test class as the previous example.
 
-Similarly, we can create simple client mode test to verify the Jakarta Servlet, Jakarta Faces, Jakarta Pages. The complete codes can be found [here](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate).
+Similarly, we can create *client mode* tests to verify the functionalities of simple Jakarta Servlet, Jakarta Faces, Jakarta Pages, etc. The complete codes can be found [here](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate).
 
-> To test the details of HTML elements and Ajax interactions in pages, please go to [Arquillian Extension Drone](https://github.com/arquillian/arquillian-extension-drone) and [Arquillian Graphene](https://github.com/arquillian/arquillian-graphene).
+> To verify the HTML elements and Ajax interactions in the rendered HTML pages, please check [Arquillian Extension Drone](https://github.com/arquillian/arquillian-extension-drone) and [Arquillian Graphene](https://github.com/arquillian/arquillian-graphene).
 
 ## Configuring Jetty Embedded Adapter
 
-Add a new Maven profile for Arquillian Jetty Embedded Adapter.
+Add a new Maven profile for configuring Arquillian Jetty Embedded Adapter.
 
 ```xml
 <profile>
@@ -442,7 +451,7 @@ Add a new Maven profile for Arquillian Jetty Embedded Adapter.
 </profile>
 ```
 
-Run the tests against the `arq-jetty-embedded` profile, for example.
+Run the previous tests against the `arq-jetty-embedded` profile, for example.
 
 ```bash 
 mvn clean verify -Parq-jetty-embeded -Dit.test=GreetingResourceTest
@@ -450,7 +459,7 @@ mvn clean verify -Parq-jetty-embeded -Dit.test=GreetingResourceTest
 
 ## Configuring Arquillian Weld Embedded
 
-Arquillian project provides an official extensions to test CDI beans in a Weld container.
+Arquillian project provides an official extensions to test CDI beans in an embedded Weld container.
 
 ```xml
 <profile>
@@ -493,10 +502,10 @@ Arquillian project provides an official extensions to test CDI beans in a Weld c
 </profile>
 ```
 
-We excludes the tests of Servlet, Jakarta REST Resource.
+We excludes the tests of Servlet, Jakarta REST Resource in this profile.
 
 
-> The tests of  Jakarta Servlet, Jakarta Pages and Jakarta Faces requires a Servlet container. 
+> The tests of Jakarta Servlet, Jakarta Pages and Jakarta Faces require a Servlet container. 
 
 Execute the following command to run the `GreetingServiceTest` .
 
