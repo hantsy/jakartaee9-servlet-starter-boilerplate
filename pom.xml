@@ -53,8 +53,10 @@
         <weld.version>4.0.3.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
-        <arquillian-bom.version>1.7.0.Alpha10</arquillian-bom.version>
-        <junit-jupiter.version>5.8.2</junit-jupiter.version>
+        <arquillian-bom.version>1.7.0.Alpha11</arquillian-bom.version>
+        <junit-jupiter.version>5.9.0</junit-jupiter.version>
+        <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
+        <arquillian-jetty.version>1.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
         <mockito.version>4.6.1</mockito.version>
@@ -74,9 +76,10 @@
         <dependencies>
             <dependency>
                 <groupId>jakarta.platform</groupId>
-                <artifactId>jakarta.jakartaee-api</artifactId>
+                <artifactId>jakarta.jakartaee-bom</artifactId>
                 <version>${jakartaee-api.version}</version>
-                <scope>provided</scope>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <dependency>
@@ -390,13 +393,13 @@
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-tomcat-embedded-10</artifactId>
-                    <version>1.2.0.Final</version>
+                    <version>${arquillian-tomcat.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-tomcat-jakarta-deps</artifactId>
-                    <version>1.2.0.Alpha1</version>
+                    <version>${arquillian-tomcat.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
@@ -428,7 +431,7 @@
                 <dependency>
                     <groupId>org.jboss.arquillian.container</groupId>
                     <artifactId>arquillian-jetty-embedded-11</artifactId>
-                    <version>1.0.0.Final</version>
+                    <version>${arquillian-jetty.version}</version>
                     <scope>test</scope>
                 </dependency>
                 <dependency>
