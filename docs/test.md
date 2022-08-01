@@ -2,9 +2,9 @@
 
 In the last post [Building JakartaEE 9 Web Applicaiton with Servlet Container](./build.md), we have described how to start a Jakarta EE 9 web application with the core Jakarta EE components, including CDI, Jakarta Faces, Jakarta Servlet, Jakarta Pages, Jakarta REST, etc and run it in a Jakarta EE 9 compatible Servlet container. In this post, we will discuss how to test these components in a Servlet Container with the Arquillian testing framework.
 
-The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, For more information please go to [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently, both projects provide an embedded* container adapter that supports the latest Apache Tomcat 10 and Eclipse Jetty 11, but there is no managed and remote adapters available.
+The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, for more information please go to [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently, both projects provide an *embedded* container adapter that supports the latest Apache Tomcat 10 and Eclipse Jetty 11, but there is no managed and remote adapters available.
 
-If you are new to the Arquillian testing framework, please read the official [Getting Started Guides](https://arquillian.org/guides/) firstly,  or explore my previous Arquillian articles on [testing Jakarta  EE 8 applications](https://hantsy.github.io/jakartaee8-starter-boilerplate/) and [Jakarta EE 9 applications](https://hantsy.github.io/jakartaee9-starter-boilerplate/) to get to know the basic knowledge of Arquillian.
+If you are new to Arquillian, please read the official [Getting Started Guides](https://arquillian.org/guides/) firstly,  or explore my previous Arquillian articles on [testing Jakarta  EE 8 applications](https://hantsy.github.io/jakartaee8-starter-boilerplate/) and [Jakarta EE 9 applications](https://hantsy.github.io/jakartaee9-starter-boilerplate/) to get to know the basic knowledge of Arquillian.
 
 ## Configuring Arquillian
 
@@ -192,7 +192,7 @@ public class HelloTest {
 
 We have tested the simple POJOs in unit tests, for other Jakarta EE components, such as Servlet, Jakarta Pages, etc, we have to verify the functionality in a Servlet container, we will write integration tests using Arquillian for this scenario.
 
-To run unit tests and integration tests in a different phase, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in the `integration-test` phase. 
+To run unit tests and integration tests in different phases, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in the `integration-test` phase. 
 
 ```xml
 <plugins>
