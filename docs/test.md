@@ -1,10 +1,10 @@
 # Testing Jakarta EE 9 Web Application with Servlet Container
 
-In the last post [Building JakartaEE 9 Web Applicaiton with Servlet Container](./build.md), we have described how to start a Jakarta EE 9 web application with the core Jakarta EE components, including CDI, Jakarta Faces, Jakarta Servlet, Jakarta Pages, Jakarta REST etc and run it in a Jakarta EE 9 compatiable Servlet container. In this post we will discuss how to test these components in a Servlet Container with the Arquillian testing framework.
+In the last post [Building JakartaEE 9 Web Applicaiton with Servlet Container](./build.md), we have described how to start a Jakarta EE 9 web application with the core Jakarta EE components, including CDI, Jakarta Faces, Jakarta Servlet, Jakarta Pages, Jakarta REST, etc and run it in a Jakarta EE 9 compatible Servlet container. In this post, we will discuss how to test these components in a Servlet Container with the Arquillian testing framework.
 
-The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, more information please go to [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently both projects provide an *embeded* container adapter which supports the latest Apache Tomcat 10 and Eclipse Jetty 11, but there is no managed and remote adapters available.
+The Arquillian project provides official support for Apache Tomcat and Eclipse Jetty, For more information please go to [Arquillian Container Tomcat](https://github.com/arquillian/arquillian-container-tomcat) and [Arquillian Container Jetty](https://github.com/arquillian/arquillian-container-jetty). Currently, both projects provide an embedded* container adapter that supports the latest Apache Tomcat 10 and Eclipse Jetty 11, but there is no managed and remote adapters available.
 
-If you are new to Arquillian testing framework, please read the official [Getting Started Guides](https://arquillian.org/guides/) firstly,  or explore my previous Arquillian articles of [testing Jakarta EE 8 applicaitons](https://hantsy.github.io/jakartaee8-starter-boilerplate/) and [Jakarta EE 9 applications](https://hantsy.github.io/jakartaee9-starter-boilerplate/) to get to know the basic knowledge of Arquillian.
+If you are new to the Arquillian testing framework, please read the official [Getting Started Guides](https://arquillian.org/guides/) firstly,  or explore my previous Arquillian articles on [testing Jakarta  EE 8 applications](https://hantsy.github.io/jakartaee8-starter-boilerplate/) and [Jakarta EE 9 applications](https://hantsy.github.io/jakartaee9-starter-boilerplate/) to get to know the basic knowledge of Arquillian.
 
 ## Configuring Arquillian
 
@@ -54,6 +54,7 @@ Add the following dependencies in the project *dependencies* section.
     </dependency>
 </dependencies>
 ```      
+
 You can also add the following testing utility libs to improve your testing codes.
 
 ```xml
@@ -82,11 +83,11 @@ You can also add the following testing utility libs to improve your testing code
 </dependencies>    
 ```
 
-Next we will configure Arquillian Tomcat Embedded Adapter to run the testing codes agaisnt an embedded Apache Tomcat container. 
+Next, we will configure Arquillian Tomcat Embedded Adapter to run the testing codes against an embedded Apache Tomcat container. 
 
 ## Configuring Arquillian Tomcat Embedded Adapter
 
-Create a new Maven profile to centralize all configurations of the Arquillian tomcat embeded adapter.
+Create a new Maven profile to centralize all configurations of the Arquillian tomcat embedded adapter.
 
 ```xml
 <profile>
@@ -126,7 +127,7 @@ Now we will write some testing codes.
 
 ## Testing Jakarta Components
 
-For simple POJOs, you can write a simple JUnit test for verify the funcationality. For example, `GreetingMessage` is a simple POJO used to assemble a readable greeting message. We can write a simple JUnit test to check if it is working as expected. 
+For simple POJOs, you can write a simple JUnit test to verify the functionality. For example, `GreetingMessage` is a simple POJO used to assemble a readable greeting message. We can write a simple JUnit test to check if it is working as expected. 
 
 ```java
 public class GreetingMessageTest {
@@ -139,7 +140,7 @@ public class GreetingMessageTest {
 }
 ```
 
-The `GreetingService` bean itself is just implementing a simple funcationality that is used to build a greeting message using the `buildGreetingMessage` method that accepts an argument to setup the target of greeting. Just like previous testing example, create a simple JUnit test to verify if it is functional as expected.
+The `GreetingService` bean itself is just implementing a simple functionality that is used to build a greeting message using the `buildGreetingMessage` method that accepts an argument to set up the target of greeting. Just like the previous testing example, create a simple JUnit test to verify if it is functional as expected.
 
 ```java
 public class GreetingServiceUnitTest {
@@ -159,7 +160,7 @@ public class GreetingServiceUnitTest {
 }
 ```
 
-The `Hello` bean dependes on `GreetingService` bean. To test the functionality of `Hello` in a Unit Test, we can use Mockito to isolate the dependency - `GreetingService`. In the following `HelloTest`, we created a mocked object of `GreetingService` in the tests. 
+The `Hello` bean depends on the `GreetingService` bean. To test the functionality of `Hello` in a Unit Test, we can use Mockito to isolate the dependency - `GreetingService`. In the following `HelloTest`, we created a mocked object of `GreetingService` in the tests. 
 
 ```java
 public class HelloTest {
@@ -189,9 +190,9 @@ public class HelloTest {
 }
 ```
 
-We have tested the simple POJOs in unit tests, for other Jakarta EE components, such as Servlet, Jakarta Pages, etc, we have to verify the functionality in a Servlet container, we will write integation tests using Arquillian for this scenario.
+We have tested the simple POJOs in unit tests, for other Jakarta EE components, such as Servlet, Jakarta Pages, etc, we have to verify the functionality in a Servlet container, we will write integration tests using Arquillian for this scenario.
 
-To run unit tests and integration tests in different phase, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in `integration-test` phase. 
+To run unit tests and integration tests in a different phase, we can configure `maven-surefire-plugin` and `maven-failsafe-plugin` as the following, and make sure integration tests run in the `integration-test` phase. 
 
 ```xml
 <plugins>
@@ -285,15 +286,15 @@ As you see, an Arquillian integration test is annotated with `@ExtendWith(Arquil
 
 In an Arquillian test, you have to create a minimal deployment archive via a static `@Deployment` annotated method. In the `@Deployment` method, you can prepare the resource that will be packaged and deployed to the target runtime before running test cases. 
 
-In the test class, you can inject available beans like a CDI bean, for example, we inject `GreetingService` here, then in the test method, use `GreetingService` bean to verify the functionality.
+In the test class, you can inject available beans like a CDI bean, for example, we inject `GreetingService` here, then in the test method, use the `GreetingService` bean to verify the functionality.
 
-Open your terminal, execute the following command to run `GreetingServiceTest`.
+Open your terminal, and execute the following command to run `GreetingServiceTest`.
 
 ```bash 
 mvn clean verify -Parq-tomcat-embeded -Dit.test=GreetingServiceTest
 ```
 
-When running Arquillian test, it will package the deployment resources into a deployable archive, and deploy it to the target container, then run the test in the container, the JUnit client agent will gather the running result through a proxy that interacts with tests in the container. 
+When running an Arquillian test, it will package the deployment resources into a deployable archive, and deploy it to the target container, then run the test in the container, the JUnit client agent will gather the running result through a proxy that interacts with tests in the container. 
 
 Let's move to test `GreetingResource`. 
 
@@ -356,9 +357,9 @@ public class GreetingResourceTest {
 }
 ```
 
-Unlike `GreetingServiceTest`, to test the funtionality of `GreetingResource`, we use Jakarta REST Client API to interact with the HTTP APIs in a client view. 
+Unlike `GreetingServiceTest`, to test the functionality of `GreetingResource``, we use Jakarta REST Client API to interact with the HTTP APIs in a client view. 
 
-Adding a `testable=false` attribute in the `@Deployment` annotation means all tests will be run in the client mode.
+Adding a `testable=false` attribute in the `@Deployment` annotation means all tests will be run in client mode.
 
 Alternatively, you can also add a single `@RunAsClient` on the test method to run it locally. 
 
@@ -459,9 +460,9 @@ mvn clean verify -Parq-jetty-embeded -Dit.test=GreetingResourceTest
 
 ## Configuring Arquillian Weld Embedded
 
-Arquillian project provides an official extensions to test CDI beans in an embedded Weld container. 
+Arquillian project provides an official extension to test CDI beans in an embedded Weld container. 
 
-Create a new Maven profile to configure Arquillian Weld Embedded Adapter, and ues `maven-failsafe-plugin` to filter out the tests of Jakarta Servlet, Jakarta Faces, etc.
+Create a new Maven profile to configure Arquillian Weld Embedded Adapter, and use `maven-failsafe-plugin` to filter out the tests of Jakarta Servlet, Jakarta Faces, etc.
 
 ```xml
 <profile>
@@ -504,7 +505,7 @@ Create a new Maven profile to configure Arquillian Weld Embedded Adapter, and ue
 </profile>
 ```
 
-Execute the following command to run the `GreetingServiceTest` .
+Execute the following command to run the `GreetingServiceTest`.
 
 ```bash
 mvn clean verify -Parq-weld -Dit.test=GreetingServiceTest
