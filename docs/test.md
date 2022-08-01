@@ -459,7 +459,9 @@ mvn clean verify -Parq-jetty-embeded -Dit.test=GreetingResourceTest
 
 ## Configuring Arquillian Weld Embedded
 
-Arquillian project provides an official extensions to test CDI beans in an embedded Weld container.
+Arquillian project provides an official extensions to test CDI beans in an embedded Weld container. 
+
+Create a new Maven profile to configure Arquillian Weld Embedded Adapter, and ues `maven-failsafe-plugin` to filter out the tests of Jakarta Servlet, Jakarta Faces, etc.
 
 ```xml
 <profile>
@@ -502,15 +504,12 @@ Arquillian project provides an official extensions to test CDI beans in an embed
 </profile>
 ```
 
-We excludes the tests of Servlet, Jakarta REST Resource in this profile.
-
-
-> The tests of Jakarta Servlet, Jakarta Pages and Jakarta Faces require a Servlet container. 
-
 Execute the following command to run the `GreetingServiceTest` .
 
 ```bash
 mvn clean verify -Parq-weld -Dit.test=GreetingServiceTest
 ```
 
-Get the [complete codes](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) from my Github account.
+> The testing codes of Jakarta Servlet, Jakarta Pages and Jakarta Faces require a Servlet container. 
+
+Get the [complete source codes](https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate) from my Github account.
