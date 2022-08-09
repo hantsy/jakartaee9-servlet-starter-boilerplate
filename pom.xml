@@ -53,7 +53,7 @@
         <weld.version>4.0.3.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
-        <arquillian-bom.version>1.7.0.Alpha11</arquillian-bom.version>
+        <arquillian-bom.version>1.7.0.Alpha12</arquillian-bom.version>
         <junit-jupiter.version>5.9.0</junit-jupiter.version>
         <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
         <arquillian-jetty.version>1.0.0.Final</arquillian-jetty.version>
