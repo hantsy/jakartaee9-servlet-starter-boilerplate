@@ -33,7 +33,7 @@
         <cargo-maven3-plugin.version>1.10.1</cargo-maven3-plugin.version>
 
         <!-- Eclipse Jetty Maven plugin -->
-        <jetty-maven-plugin.version>11.0.11</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.12</jetty-maven-plugin.version>
 
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
@@ -474,7 +474,7 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-simple</artifactId>
-                    <version>2.0.0</version>
+                    <version>2.0.1</version>
                     <scope>test</scope>
                 </dependency>
                 <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
@@ -652,7 +652,7 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-simple</artifactId>
-                    <version>2.0.0</version>
+                    <version>2.0.1</version>
                 </dependency>
             </dependencies>
         </profile>
