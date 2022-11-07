@@ -47,7 +47,7 @@
         <hibernate-validator.version>8.0.0.Final</hibernate-validator.version>
 
         <!-- Jersey for Jakarta REST support -->
-        <jersey.version>3.0.8</jersey.version>
+        <jersey.version>3.1.0</jersey.version>
 
         <!-- Weld for CDI support -->
         <weld.version>4.0.3.Final</weld.version>
