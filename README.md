@@ -26,7 +26,7 @@ Nowadays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jet
 Run the following command to run the application on Tomcat 10.
 
 ```bash
-mvn clean pacakge cargo:run
+mvn clean package cargo:run
 ```
 
 ## Eclipse Jetty 11
