@@ -490,6 +490,7 @@
             <properties>
                 <skipTests>false</skipTests>
                 <jetty.versoin>12.0.0.alpha3</jetty.versoin>
+                <arquillian-jetty.version>2.0.0.Final-SNAPSHOT</arquillian-jetty.version>
             </properties>
             <dependencies>
                 <dependency>
