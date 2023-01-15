@@ -11,8 +11,11 @@ updates:
     labels:
       - "dependencies"
       - "maven"
-    ignore: 
+    ignore:
       - dependency-name: "jakarta.*"
         update-types: ["version-update:semver-major"]
       - dependency-name: "org.glassfish.*"
-        update-types: ["version-update:semver-major"]  
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "org.apache.tomcat*"
+        update-types:
+          ["version-update:semver-major", "version-update:semver-minor"]
