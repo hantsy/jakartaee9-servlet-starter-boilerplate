@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -142,7 +143,7 @@
 
         <!--<dependency>
             <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
         </dependency>-->
 
         <!-- Jakarta Faces -->
@@ -155,20 +156,20 @@
         <!--
          <dependency>
              <groupId>jakarta.servlet</groupId>
-             <artifactId>jakarta.servlet-api</artifactId>
+        <artifactId>jakarta.servlet-api</artifactId>
              <version>5.0.0</version>
-             <scope>provided</scope>
+        <scope>provided</scope>
          </dependency>
          <dependency>
-             <groupId>jakarta.el</groupId>
+        <groupId>jakarta.el</groupId>
              <artifactId>jakarta.el-api</artifactId>
-             <version>4.0.0</version>
+        <version>4.0.0</version>
              <scope>provided</scope>
          </dependency>
-         <dependency>
+        <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>${jakarta.servlet.jsp.jstl.version}</version>
+        <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        <version>${jakarta.servlet.jsp.jstl.version}</version>
         </dependency>
          -->
         <dependency>
@@ -185,7 +186,7 @@
         <!-- Optional, only when <f:websocket> is used. -->
         <!-- dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.json</artifactId>
+        <artifactId>jakarta.json</artifactId>
             <version>${jakarta.json.version}</version>
         </dependency -->
 
@@ -480,8 +481,72 @@
                 <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
                 <!--<dependency>
                     <groupId>org.jboss.arquillian.testenricher</groupId>
-                    <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
+                <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
                 </dependency>-->
+            </dependencies>
+        </profile>
+        <profile>
+            <id>arq-jetty-embedded-12</id>
+            <properties>
+                <skipTests>false</skipTests>
+                <jetty.versoin>12.0.0.alpha3</jetty.versoin>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-jetty-embedded-12-ee9</artifactId>
+                    <version>${arquillian-jetty.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-annotations</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-plus</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-deploy</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-servlet</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-webapp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-cdi</artifactId>
+                    <scope>test</scope>
+                    <!-- to remove when 11.0.10 released -->
+                    <!-- see https://github.com/eclipse/jetty.project/pull/7991 -->
+                    <version>${jetty.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.websocket</groupId>
+                    <artifactId>websocket-jakarta-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>apache-jsp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                    <version>2.0.6</version>
+                    <scope>test</scope>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
