@@ -61,7 +61,7 @@
         <!-- Test Utilities -->
         <mockito.version>5.0.0</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
-        <assertj.version>3.24.1</assertj.version>
+        <assertj.version>3.24.2</assertj.version>
 
         <!-- Jacoco code coverage report -->
         <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
