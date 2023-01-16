@@ -54,7 +54,7 @@
 
         <!-- TODO: update Arquillian BOM -->
         <arquillian-bom.version>1.7.0.Alpha13</arquillian-bom.version>
-        <junit-jupiter.version>5.9.1</junit-jupiter.version>
+        <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
         <arquillian-jetty.version>1.0.0.Final</arquillian-jetty.version>
 
