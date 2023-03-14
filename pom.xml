@@ -59,7 +59,7 @@
         <arquillian-jetty.version>1.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
-        <mockito.version>5.1.1</mockito.version>
+        <mockito.version>5.2.0</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
         <assertj.version>3.24.2</assertj.version>
 
