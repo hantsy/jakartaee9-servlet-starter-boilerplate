@@ -33,7 +33,7 @@
         <cargo-maven3-plugin.version>1.10.6</cargo-maven3-plugin.version>
 
         <!-- Eclipse Jetty Maven plugin -->
-        <jetty-maven-plugin.version>11.0.14</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.15</jetty-maven-plugin.version>
 
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
