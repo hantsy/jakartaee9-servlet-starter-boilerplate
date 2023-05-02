@@ -64,7 +64,7 @@
         <assertj.version>3.24.2</assertj.version>
 
         <!-- Jacoco code coverage report -->
-        <jacoco-maven-plugin.version>0.8.9</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
 
         <!-- Weld embedded-->
         <arquillian-weld-embedded.version>3.0.2.Final</arquillian-weld-embedded.version>
