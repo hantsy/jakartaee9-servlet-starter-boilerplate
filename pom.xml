@@ -56,7 +56,7 @@
         <arquillian-bom.version>1.7.1.Final</arquillian-bom.version>
         <junit-jupiter.version>5.10.0</junit-jupiter.version>
         <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
-        <arquillian-jetty.version>1.0.0.Final</arquillian-jetty.version>
+        <arquillian-jetty.version>2.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
         <mockito.version>5.5.0</mockito.version>
