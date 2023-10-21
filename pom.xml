@@ -31,15 +31,15 @@
         <maven-surefire-report-plugin.version>3.1.2</maven-surefire-report-plugin.version>
 
         <!-- Cargo maven plugin -->
-        <cargo-maven3-plugin.version>1.10.9</cargo-maven3-plugin.version>
+        <cargo-maven3-plugin.version>1.10.10</cargo-maven3-plugin.version>
 
         <!-- Eclipse Jetty Maven plugin -->
-        <jetty-maven-plugin.version>11.0.15</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.17</jetty-maven-plugin.version>
 
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
         <tomcat.version>10.0.27</tomcat.version>
-        <jetty.version>11.0.15</jetty.version>
+        <jetty.version>11.0.17</jetty.version>
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
         <jakarta.faces.version>3.0.2</jakarta.faces.version> <!-- Glassfish Mojarra -->
@@ -54,18 +54,18 @@
         <weld.version>4.0.3.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
-        <arquillian-bom.version>1.7.0.Final</arquillian-bom.version>
+        <arquillian-bom.version>1.7.1.Final</arquillian-bom.version>
         <junit-jupiter.version>5.10.0</junit-jupiter.version>
         <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
         <arquillian-jetty.version>2.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
-        <mockito.version>5.4.0</mockito.version>
+        <mockito.version>5.6.0</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
         <assertj.version>3.24.2</assertj.version>
 
         <!-- Jacoco code coverage report -->
-        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+        <jacoco-maven-plugin.version>0.8.11</jacoco-maven-plugin.version>
 
         <!-- Weld embedded-->
         <arquillian-weld-embedded.version>3.0.2.Final</arquillian-weld-embedded.version>
@@ -300,7 +300,7 @@
                 <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.9.1.2184</version>
+                    <version>3.10.0.2594</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -475,7 +475,7 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-simple</artifactId>
-                    <version>2.0.7</version>
+                    <version>2.0.9</version>
                     <scope>test</scope>
                 </dependency>
                 <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
@@ -742,7 +742,7 @@
                 <dependency>
                     <groupId>org.slf4j</groupId>
                     <artifactId>slf4j-simple</artifactId>
-                    <version>2.0.7</version>
+                    <version>2.0.9</version>
                 </dependency>
             </dependencies>
         </profile>

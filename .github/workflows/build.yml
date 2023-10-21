@@ -21,7 +21,7 @@ jobs:
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
         java: [11, 17]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
@@ -29,7 +29,7 @@ jobs:
           java-version: ${{matrix.java}}
 
       - name: Cache Maven packages
-        uses: actions/cache@v3.3.1
+        uses: actions/cache@v3.3.2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
