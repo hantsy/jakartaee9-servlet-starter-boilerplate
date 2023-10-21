@@ -18,11 +18,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
-          java-version: 11
+          java-version: 17
           cache: 'maven'
 
       - name: Build with Maven   
@@ -37,7 +37,7 @@ jobs:
            -Dsonar.organization=hantsy \
            -Dsonar.projectKey=hantsy_jakartaee9-servlet-starter-boilerplate \
            -Dsonar.coverage.exclusions=**/*Activator.*  \
-           -Dsonar.java.source=11
+           -Dsonar.java.source=17
 
 
 

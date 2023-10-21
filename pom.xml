@@ -15,8 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Set java compiler version to use Java 11 Level -->
-        <maven.compiler.release>11</maven.compiler.release>
+        <!-- Set java compiler version to use Java 17 Level -->
+        <maven.compiler.release>17</maven.compiler.release>
 
         <!-- The default value is changed to `false` since maven-war-plugin 3.0.0 -->
         <failOnMissingWebXml>false</failOnMissingWebXml>

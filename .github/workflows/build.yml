@@ -11,7 +11,6 @@ on:
       - opened
       - synchronize
       - reopened
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +18,7 @@ jobs:
       matrix:
         distribution: ['zulu', 'adopt']
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
-        java: [11, 17]
+        java: [17, 21]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Java
@@ -27,13 +26,7 @@ jobs:
         with:
           distribution: ${{matrix.distribution}}
           java-version: ${{matrix.java}}
-
-      - name: Cache Maven packages
-        uses: actions/cache@v3.3.2
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+          cache: "maven"
 
       - name: Build with Maven
         run: mvn clean package --file pom.xml -Dmaven.compiler.source=${{matrix.java}} -Dmaven.compiler.target=${{matrix.java}}
