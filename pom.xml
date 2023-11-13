@@ -41,7 +41,7 @@
         <jetty.version>11.0.18</jetty.version>
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
-        <jakarta.faces.version>3.0.2</jakarta.faces.version> <!-- Glassfish Mojarra -->
+        <jakarta.faces.version>4.0.5</jakarta.faces.version> <!-- Glassfish Mojarra -->
         <jakarta.servlet.jsp.jstl.version>2.0.0</jakarta.servlet.jsp.jstl.version>
         <jakarta.json.version>2.0.1</jakarta.json.version>
         <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
