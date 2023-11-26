@@ -16,8 +16,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <!-- Set java compiler version to use Java 11 Level -->
-        <maven.compiler.release>11</maven.compiler.release>
+        <!-- Set java compiler version to use Java 17 Level -->
+        <maven.compiler.release>17</maven.compiler.release>
 
         <!-- The default value is changed to `false` since maven-war-plugin 3.0.0 -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -26,20 +26,20 @@
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
-        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
-        <maven-surefire-report-plugin.version>3.1.2</maven-surefire-report-plugin.version>
+        <maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.2.2</maven-failsafe-plugin.version>
+        <maven-surefire-report-plugin.version>3.2.1</maven-surefire-report-plugin.version>
 
         <!-- Cargo maven plugin -->
         <cargo-maven3-plugin.version>1.10.10</cargo-maven3-plugin.version>
 
         <!-- Eclipse Jetty Maven plugin -->
-        <jetty-maven-plugin.version>11.0.17</jetty-maven-plugin.version>
+        <jetty-maven-plugin.version>11.0.18</jetty-maven-plugin.version>
 
         <!-- Jakarta EE API -->
         <jakartaee-api.version>9.1.0</jakartaee-api.version>
         <tomcat.version>10.0.27</tomcat.version>
-        <jetty.version>11.0.17</jetty.version>
+        <jetty.version>11.0.18</jetty.version>
         <facelets.version>1.1.15</facelets.version>
         <jakarta.el.version>4.0.2</jakarta.el.version>
         <jakarta.faces.version>3.0.2</jakarta.faces.version> <!-- Glassfish Mojarra -->
@@ -48,19 +48,19 @@
         <hibernate-validator.version>8.0.1.Final</hibernate-validator.version>
 
         <!-- Jersey for Jakarta REST support -->
-        <jersey.version>3.0.11</jersey.version>
+        <jersey.version>3.0.12</jersey.version>
 
         <!-- Weld for CDI support -->
         <weld.version>4.0.3.Final</weld.version>
 
         <!-- TODO: update Arquillian BOM -->
-        <arquillian-bom.version>1.7.1.Final</arquillian-bom.version>
-        <junit-jupiter.version>5.10.0</junit-jupiter.version>
+        <arquillian-bom.version>1.8.0.Final</arquillian-bom.version>
+        <junit-jupiter.version>5.10.1</junit-jupiter.version>
         <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
         <arquillian-jetty.version>2.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
-        <mockito.version>5.6.0</mockito.version>
+        <mockito.version>5.7.0</mockito.version>
         <hamcrest.version>2.2</hamcrest.version>
         <assertj.version>3.24.2</assertj.version>
 

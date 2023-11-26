@@ -21,7 +21,17 @@ Nowadays the most popular Servlet containers, such as Apache Tomcat, Eclipse Jet
 
 > For full-fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
-## Apache Tomcat 10
+
+## Build 
+
+## Prerequisites 
+
+Assume you have installed the following essential software.
+
+* JDK 17 or JDK 21
+* The latest [Apache Maven](https://maven.apache.org)
+
+### Apache Tomcat 10
 
 Run the following command to run the application on Tomcat 10.
 
@@ -29,7 +39,7 @@ Run the following command to run the application on Tomcat 10.
 mvn clean package cargo:run
 ```
 
-## Eclipse Jetty 11
+### Eclipse Jetty 11
 
 The new `jetty-maven-plugin` reorganizes the former `run-fork` goal and provides 3 modes to run a Jetty server.
 
@@ -63,7 +73,7 @@ mvn clean jetty:run -Pjetty-external
 ```
 
 
-## Testing
+### Testing
 
 The testing codes write with JUnit and Arquillian.
 
