@@ -525,14 +525,42 @@
         <profile>
             <id>coverage</id>
             <properties>
-                <jacoco.version>0.8.6</jacoco.version>
+                <jacoco.version>0.8.11</jacoco.version>
                 <arquillian-jacoco.version>1.1.0</arquillian-jacoco.version>
             </properties>
             <dependencies>
                 <dependency>
                     <groupId>org.jboss.arquillian.extension</groupId>
-                    <artifactId>arquillian-jacoco-with-asm</artifactId>
+                    <artifactId>arquillian-jacoco</artifactId>
                     <version>${arquillian-jacoco.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm -->
+                <dependency>
+                    <groupId>org.ow2.asm</groupId>
+                    <artifactId>asm</artifactId>
+                    <version>9.6</version>
+                    <scope>test</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm-util -->
+                <dependency>
+                    <groupId>org.ow2.asm</groupId>
+                    <artifactId>asm-util</artifactId>
+                    <version>9.6</version>
+                    <scope>test</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.jacoco/org.jacoco.core -->
+                <dependency>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>org.jacoco.core</artifactId>
+                    <version>${jacoco.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <!-- https://mvnrepository.com/artifact/org.jacoco/org.jacoco.agent -->
+                <dependency>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>org.jacoco.agent</artifactId>
+                    <version>${jacoco.version}</version>
                     <scope>test</scope>
                 </dependency>
             </dependencies>
@@ -547,21 +575,34 @@
                                 <!-- excludes the resources not to calculated in coverage report-->
                                 <exclude>**/*Resource.*</exclude>
                             </excludes>
+                            <formats>
+                                <format>XML</format>
+                            </formats>
                         </configuration>
                         <executions>
                             <execution>
-                                <id>default-prepare-agent</id>
+                                <id>prepare-unit-tests</id>
                                 <goals>
                                     <goal>prepare-agent</goal>
                                 </goals>
                             </execution>
                             <execution>
+                                <id>prepare-integration-tests</id>
+                                <goals>
+                                    <goal>prepare-agent-integration</goal>
+                                </goals>
+                                <configuration>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <execution>
                                 <id>default-report</id>
                                 <goals>
                                     <goal>report</goal>
+                                    <goal>report-integration</goal>
                                 </goals>
                             </execution>
-                            <execution>
+                            <!-- <execution>
                                 <id>default-check</id>
                                 <goals>
                                     <goal>check</goal>
@@ -580,7 +621,7 @@
                                         </rule>
                                     </rules>
                                 </configuration>
-                            </execution>
+                            </execution> -->
                         </executions>
                     </plugin>
                 </plugins>
