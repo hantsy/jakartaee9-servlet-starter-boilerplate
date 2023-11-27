@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
@@ -112,6 +113,16 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- Mockito -->
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-bom</artifactId>
+                <version>${mockito.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
             <dependency>
                 <groupId>org.hamcrest</groupId>
@@ -127,22 +138,13 @@
                 <version>${assertj.version}</version>
                 <scope>test</scope>
             </dependency>
-
-            <!-- Mockito -->
-            <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
-            <dependency>
-                <groupId>org.mockito</groupId>
-                <artifactId>mockito-core</artifactId>
-                <version>${mockito.version}</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
 
         <!--<dependency>
             <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
         </dependency>-->
 
         <!-- Jakarta Faces -->
@@ -155,20 +157,20 @@
         <!--
          <dependency>
              <groupId>jakarta.servlet</groupId>
-             <artifactId>jakarta.servlet-api</artifactId>
+        <artifactId>jakarta.servlet-api</artifactId>
              <version>5.0.0</version>
-             <scope>provided</scope>
+        <scope>provided</scope>
          </dependency>
          <dependency>
-             <groupId>jakarta.el</groupId>
+        <groupId>jakarta.el</groupId>
              <artifactId>jakarta.el-api</artifactId>
-             <version>4.0.0</version>
+        <version>4.0.0</version>
              <scope>provided</scope>
          </dependency>
-         <dependency>
+        <dependency>
             <groupId>jakarta.servlet.jsp.jstl</groupId>
-            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
-            <version>${jakarta.servlet.jsp.jstl.version}</version>
+        <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+        <version>${jakarta.servlet.jsp.jstl.version}</version>
         </dependency>
          -->
         <dependency>
@@ -185,7 +187,7 @@
         <!-- Optional, only when <f:websocket> is used. -->
         <!-- dependency>
             <groupId>org.glassfish</groupId>
-            <artifactId>jakarta.json</artifactId>
+        <artifactId>jakarta.json</artifactId>
             <version>${jakarta.json.version}</version>
         </dependency -->
 
@@ -268,7 +270,7 @@
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
+            <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -480,8 +482,105 @@
                 <!-- see: https://github.com/arquillian/arquillian-container-jetty/pull/108 -->
                 <!--<dependency>
                     <groupId>org.jboss.arquillian.testenricher</groupId>
-                    <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
+                <artifactId>arquillian-testenricher-cdi-jakarta</artifactId>
                 </dependency>-->
+            </dependencies>
+        </profile>
+        <profile>
+            <id>arq-jetty-embedded-12</id>
+            <properties>
+                <skipTests>false</skipTests>
+                <jetty.version>12.0.3</jetty.version>
+            </properties>
+            <dependencyManagement>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.eclipse.jetty.ee9</groupId>
+                        <artifactId>jetty-ee9-bom</artifactId>
+                        <version>${jetty.version}</version>
+                        <type>pom</type>
+                        <scope>import</scope>
+                    </dependency>
+                </dependencies>
+            </dependencyManagement>      
+            <dependencies>
+                <dependency>
+                    <groupId>org.jboss.arquillian.container</groupId>
+                    <artifactId>arquillian-jetty-embedded-12-ee9</artifactId>
+                    <version>${arquillian-jetty.version}</version>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-annotations</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-webapp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-plus</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9.websocket</groupId>
+                    <artifactId>jetty-ee9-websocket-jakarta-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-apache-jsp</artifactId>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-servlet</artifactId>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.eclipse.jetty.ee9</groupId>
+                    <artifactId>jetty-ee9-cdi</artifactId>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-deploy</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty.http2</groupId>
+                    <artifactId>jetty-http2-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.eclipse.jetty.http2</groupId>
+                    <artifactId>jetty-http2-hpack</artifactId>
+                    <scope>test</scope>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.jetty</groupId>
+                    <artifactId>jetty-alpn-server</artifactId>
+                    <scope>test</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                    <version>2.0.6</version>
+                    <scope>test</scope>
+                </dependency>
             </dependencies>
         </profile>
         <profile>
