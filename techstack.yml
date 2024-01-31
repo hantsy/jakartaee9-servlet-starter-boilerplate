@@ -1,0 +1,191 @@
+repo_name: hantsy/jakartaee9-servlet-starter-boilerplate
+report_id: 2f5b28f229b06bc4163615c29efd13b9
+version: 0.1
+repo_type: Public
+timestamp: '2024-01-31T08:14:58+00:00'
+requested_by: dependabot[bot]
+provider: github
+branch: master
+detected_tools_count: 15
+tools:
+- name: Java
+  description: A concurrent, class-based, object-oriented, language specifically designed
+    to have as few implementation dependencies as possible
+  website_url: https://www.java.com
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/.github/workflows/build.yml
+  detection_source: ".github/workflows/build.yml"
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-12-08 01:35:12.000000000 Z
+- name: GlassFish
+  description: The Open Source Java EE Reference Implementation
+  website_url: https://glassfish.java.net
+  open_source: false
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Web Servers
+  image_url: https://img.stackshare.io/service/3628/515GX-Cc_400x400.jpg
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: hantsy
+  last_updated_on: 2022-06-05 04:13:27.000000000 Z
+- name: Mockito
+  description: Tasty mocking framework for unit tests in Java
+  website_url: https://site.mockito.org/
+  version: 5.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Testing Frameworks
+  image_url: https://img.stackshare.io/service/2021/4y634TJm_400x400.jpg
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-12-08 01:35:43.000000000 Z
+- name: org.assertj:assertj-core
+  description: Rich and fluent assertions for testing for Java
+  version: 3.25.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-30 08:48:52.000000000 Z
+- name: org.glassfish.jersey.containers:jersey-container-servlet
+  description: Jersey core Servlet 3.x implementation
+  license: NetCDF
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.glassfish.jersey.inject:jersey-hk2
+  description: HK2 InjectionManager implementation
+  open_source: false
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.hamcrest:hamcrest
+  description: Core API and libraries of hamcrest matcher framework
+  version: '2.2'
+  license: DSDP
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.hibernate.validator:hibernate-validator
+  description: Hibernate's Bean Validation
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.jboss.shrinkwrap.resolver:shrinkwrap-resolver-impl-maven
+  description: Implementation for Resolving Dependencies from a Maven Backend
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-30 08:48:40.000000000 Z
+- name: org.jboss.weld.servlet:weld-servlet-core
+  description: Weld
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.junit.jupiter:junit-jupiter
+  description: Module "junit-jupiter" of JUnit 5
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: Hantsy Bai
+  last_updated_on: 2023-11-27 14:36:09.000000000 Z
+- name: org.junit.jupiter:junit-jupiter-params
+  description: Module "junit-jupiter-params" of JUnit 5
+  license: EPL-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2024-01-16 10:06:40.000000000 Z
+- name: org.mockito:mockito-core
+  description: Mockito mock objects library core API and implementation
+  version: 5.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/hantsy/jakartaee9-servlet-starter-boilerplate/blob/master/pom.xml
+  detection_source: pom.xml
+  last_updated_by: dependabot[bot]
+  last_updated_on: 2023-12-08 01:35:43.000000000 Z
