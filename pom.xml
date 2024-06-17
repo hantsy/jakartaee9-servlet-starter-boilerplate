@@ -525,7 +525,7 @@
         <profile>
             <id>coverage</id>
             <properties>
-                <jacoco.version>0.8.11</jacoco.version>
+                <jacoco.version>0.8.12</jacoco.version>
                 <arquillian-jacoco.version>1.1.0</arquillian-jacoco.version>
             </properties>
             <dependencies>
