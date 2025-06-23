@@ -17,8 +17,9 @@ The following features have been added:
 * Jakarta Server Faces 3.0(Mojarra 3.0)
 * And transitive dependencies of the above features, including Jakarta EL, Jakarta JSON Processing, Jakarta JSON Binding, Jakarta Validation(Hibernate Validator), etc.
 
-Nowadays, the most popular Servlet containers, such as Apache Tomcat and Eclipse Jetty, have built-in support for Jakarta Servlet, Jakarta Server Pages, JSTL, Jakarta EL, and Jakarta WebSocket.
+Nowadays, the most popular Servlet containers, such as Apache Tomcat and Eclipse Jetty, have built-in support for Jakarta Servlet, Jakarta Server Pages (JSP), JSTL, Jakarta Expression Language (EL), and Jakarta WebSocket.
 
+> [!NOTE]
 > For full-fledged features support of Jakarta EE 9, please go to [hantsy/jakartaee9-starter-boilerplate](https://github.com/hantsy/jakartaee9-starter-boilerplate).
 
 
