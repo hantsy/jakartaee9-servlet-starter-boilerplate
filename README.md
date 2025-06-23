@@ -95,7 +95,8 @@ There is another `arq-weld` Maven profile that allows you to run tests on a Weld
 mvn clean verify -Parq-weld
 ```
 
-> Note: The `arq-weld` is only used to test CDI components.
+> [!Note]
+>  The `arq-weld` is only used to test CDI components.
 
 
 ## Resources
