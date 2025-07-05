@@ -55,7 +55,7 @@
         <!-- TODO: update Arquillian BOM -->
         <arquillian-bom.version>1.8.0.Final</arquillian-bom.version>
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
-        <arquillian-tomcat.version>1.2.0.Final</arquillian-tomcat.version>
+        <arquillian-tomcat.version>1.2.1.Final</arquillian-tomcat.version>
         <arquillian-jetty.version>2.0.0.Final</arquillian-jetty.version>
 
         <!-- Test Utilities -->
